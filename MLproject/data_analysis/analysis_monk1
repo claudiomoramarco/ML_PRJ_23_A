@@ -1,0 +1,54 @@
+from sourcecode.network import Network
+from sourcecode.activationfunctions import ReLU, Sigmoid
+from sourcecode.lossfunctions import MeanSquaredError
+from sourcecode.metrics import BinaryAccuracy
+from sourcecode.results import load_monk
+from sourcecode.regularization import L2
+from tqdm import tqdm
+
+def test_network_monk1():
+    """
+    Testa la rete neurale sul dataset MONK 1.
+
+    Questo test verifica se la rete neurale addestrata con il dataset MONK 1
+    raggiunge un'accuratezza predittiva specificata.
+    """
+
+    # Carica i dati del dataset MONK 1.
+    # Si aspetta che i dati siano divisi in set di training, validazione e test.
+    x_train, x_val, x_test, y_train, y_val, y_test = load_monk(1, test_size=0.01, validation=True)
+
+    # Inizializza una metrica di accuratezza binaria per valutare le prestazioni del modello.
+    binary_accuracy = BinaryAccuracy()
+
+    # Costruisce la rete neurale.
+    # La rete ha 17 unità di input (in base ai dati MONK) e utilizza la regolarizzazione L2.
+    model = Network(17, regularizer=L2(1e-8))
+
+    # Aggiunge strati alla rete:
+    # - Un primo strato nascosto con 4 nodi e funzione di attivazione ReLU.
+    # - Uno strato di output con 1 nodo e funzione di attivazione Sigmoid.
+    #   Si utilizza Sigmoid poiché è una classificazione binaria.
+    model.add_layer(4, ReLU())
+    model.add_layer(1, Sigmoid())
+
+    # Addestra il modello sui dati di training.
+    # Utilizza Mean Squared Error come funzione di perdita e Binary Accuracy come metrica.
+    # L'addestramento avviene per 1000 epoche con un tasso di apprendimento di 0.01.
+    stats = model.train(
+        (x_train, y_train),
+        (x_val, y_val),
+        metric=binary_accuracy,
+        loss=MeanSquaredError(),
+        epochs=1000,
+        eta=0.01,
+        verbose=True,
+    )
+
+    # Calcola l'accuratezza del modello sul set di test.
+    y_pred = model.multiple_outputs(x_test)
+    acc = binary_accuracy(y_pred, y_test)
+
+    # Verifica che l'accuratezza sia pari a 1 (100%).
+    # Questo assert fallirà se l'accuratezza non è esattamente 100%.
+    assert acc == 1
