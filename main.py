@@ -2,6 +2,7 @@ import math
 import read_data
 import activation_functions
 import neural_network
+from neural_network import Network
 import numpy as np
 
 # TO DO : 
@@ -25,5 +26,6 @@ for riga in TR:
 
 # test rete fatta fin ora 
 network_instance = neural_network.Network(inputs,targets,1,20) # 1 hidden layer con 20 neuroni
-network_instance.run()
+output = network_instance.run()
+print(output)
 
