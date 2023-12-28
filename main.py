@@ -2,14 +2,13 @@ import math
 import read_data
 import activation_functions
 import neural_network
-from neural_network import Network
 import numpy as np
+import learning
 
 # TO DO : 
 # - controlla attivazione  
 # - controlla derivata di softmax 
-
-# Per ora ho fatto un solo layer con 3 neuroni (numero di valori target)
+# calcola il gradiente, ma viene un vettore di 3 elementi , capire cosa devo usare per l'aggiornamento dei pesi
 
 # lettura TR
 TR = read_data.read_TR()
@@ -24,8 +23,11 @@ for riga in TR:
     targets.append(list(map(float, riga[-3:])))
 
 
-# test rete fatta fin ora 
+# calcolo gradiente su tutto il TR senza addestramento 
 network_instance = neural_network.Network(inputs,targets,1,20) # 1 hidden layer con 20 neuroni
-output = network_instance.run()
-print(output)
+gradiente = network_instance.run()
+print(gradiente)
+
+
+
 

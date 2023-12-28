@@ -3,9 +3,10 @@ import activation_functions
 
 class Unit:
 
-    def __init__(self, activation_function, weigth_matrix, id): # qua aggiungere il bias
+    def __init__(self, activation_function, weigth_matrix, id, bias): # qua aggiungere il bias
         # weigths è la riga della matrice dei pesi corrispondente al neurone considerato
         self.activation_function = activation_function
+        self.bias = bias
         # self.bias = bias
         self.weigth_matrix = weigth_matrix
         self.id = id
@@ -15,7 +16,7 @@ class Unit:
         if id_prec == -1:
             out = value
         else:
-            out = value * self.weigth_matrix[id_prec][self.id]
+            out = value * self.weigth_matrix[id_prec][self.id] + self.bias 
         return out
 
 
@@ -45,10 +46,10 @@ class Layer:
             # lineare per input e output
             # id+i è il numero del neurone che si crea
             if not isHidden:
-                unit_tmp = Unit(activation_functions.linear, weigth_matrix, cont_units+i)
+                unit_tmp = Unit(activation_functions.linear, weigth_matrix, cont_units+i, np.random.randn())
             # ReLu per gli strati nascosti
             else:
-                unit_tmp = Unit(activation_functions.relu, weigth_matrix, cont_units+i )
+                unit_tmp = Unit(activation_functions.relu, weigth_matrix, cont_units+i, np.random.randn() )
             self.units.append(unit_tmp)
 
         
@@ -72,6 +73,7 @@ class Layer:
             out.append(np.sum(output))
 
         return out    
+    
 
 
 

@@ -1,8 +1,7 @@
 import numpy as np
 import activation_functions
-import loss_functions
 import layers
-
+import learning
 
 class Network: 
 
@@ -43,7 +42,9 @@ class Network:
         self.layers.append(layers.Layer(0, 0,  len(self.tr_targets[0]), self.weigths, cont_units, 1, len(self.tr_data[0])*2))
 
 
-    # calcola PER ORA SENZA ADDESTRAMENTO l'output con i pesi casuali per ogni riga di input del TR
+    # Per ora senza addestramento: 
+        # calcola l'output 
+        # calcola il gradiente rispetto ai pesi  
     def run(self):
         output = []
         #  ogni esempio TR
@@ -55,4 +56,6 @@ class Network:
             
             output.append(data_tmp)
         
-        return output
+        # ora ho l'output dell'intero TR
+        # calcolo il gradiente 
+        return learning.gradiente_rispetto_ai_pesi(self.weigths, self.tr_targets, output)
