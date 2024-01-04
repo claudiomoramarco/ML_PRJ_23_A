@@ -1,9 +1,9 @@
-import math
 import read_data
-import activation_functions
-import neural_network
+# import activation_functions
+# import neural_network
 import numpy as np
-import learning
+# import learning
+import nn_new
 
 # TO DO : 
 # - controlla attivazione  
@@ -23,11 +23,13 @@ for riga in TR:
     targets.append(list(map(float, riga[-3:])))
 
 
-# calcolo gradiente su tutto il TR senza addestramento 
-network_instance = neural_network.Network(inputs,targets,1,20) # 1 hidden layer con 20 neuroni
-gradiente = network_instance.run()
-print(gradiente)
 
+# # calcolo gradiente su tutto il TR senza addestramento 
+# network_instance = neural_network.Network(inputs,targets,1,20) # 1 hidden layer con 20 neuroni
+# network_instance.run_learning()
 
+# versione nuova 
+network_instance = nn_new.NN(len(inputs[0]), len(targets[0]), 20, 1)
+network_instance.run(inputs,targets,1)
 
 
