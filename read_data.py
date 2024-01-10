@@ -20,7 +20,9 @@ def read_TR():
 
         for riga in righe_selezionate:
             training_set.append(riga)
-
+        # for riga in righe_selezionate[:1]:
+        #     training_set.append(riga)
+    
     return training_set
 
 
