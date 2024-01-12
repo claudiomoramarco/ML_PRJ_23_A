@@ -1,7 +1,10 @@
 import csv
-from itertools import islice
+import numpy as np
+
+# from itertools import islice
 
 # per adesso legge solo il TR
+# legge l'intera riga
 def read_TR():
 
     training_set = []
@@ -19,11 +22,18 @@ def read_TR():
         righe_selezionate = tutte_le_righe[numero_di_riga_iniziale:]
 
         for riga in righe_selezionate:
-            training_set.append(riga)
-        # for riga in righe_selezionate[:1]:
-        #     training_set.append(riga)
-    
-    return training_set
+            training_set.append(riga[1:])
+
+    training_set = np.array(training_set)
+    training_set = training_set.astype(float)
+
+
+    # NORMALIZZAZIONE DEI DATI
+    mean_values = np.mean(training_set, axis=0)
+    std_dev_values = np.std(training_set, axis=0)
+    normalized_tr = (training_set - mean_values) / std_dev_values
+
+    return normalized_tr
 
 
 

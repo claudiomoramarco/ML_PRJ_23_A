@@ -21,7 +21,8 @@ class Unit:
         self.activationFunction = activation_function
         self.lastOut = 1
         self.lastNet = 1
-    
+        self.bias = 0 # inizia 0 (ok?)
+
 
 
     def initializeWeightsForUnit(self, numberInputUnits, numberUnitsForHLayer):
@@ -33,26 +34,31 @@ class Unit:
                 return
             
             if self.precedentIsInput:
-                self.weightsForUnit = np.round(np.random.normal(0, 0.01, numberInputUnits),2)
+                self.weightsForUnit = np.random.normal(0, 0.01, numberInputUnits) 
             else:
-                self.weightsForUnit = np.round(np.random.normal(0, 0.01, numberUnitsForHLayer),2)
+                self.weightsForUnit = np.random.normal(0, 0.01, numberUnitsForHLayer) 
 
 
 
     # restituisce il valore di net e output
     # input è il vettore degli input 
     def computeUnitOutput(self, inputs): 
+
+        # print(inputs)
+        # # print(len(inputs))
+        
         if self.isInput:  # se è nell'input layer
-            net = round(inputs,9) # singolo valore 
-            output = round(net,9) 
+            net = inputs # singolo valore 
+            output = net 
         
         else:
-            if len(inputs) != len(self.weightsForUnit):
+            
+            if len(inputs) != len(self.weightsForUnit): # +1 per il bias
                 print("Unit:computOutput:ERROR")
                 exit()      
-            
-            net = round(np.dot(inputs,self.weightsForUnit),9)
-            output = round(net,9) 
+                
+            net = self.bias + np.dot(inputs,self.weightsForUnit)
+            output = net
     
         # salvo l'ultimo net e l'ultimo output calcolato 
         self.lastNet = net # ultimo net calcolato
@@ -68,16 +74,19 @@ class Unit:
         
             if self.isOutput:
                 delta = (target-self.lastOut)*(activation_functions.derivative(self.activationFunction))(self.lastNet)
-                self.lastDelta = round(delta,9) # salvo l'ultimo delta calcolato
+                self.lastDelta = delta # salvo l'ultimo delta calcolato
                 for i in range(len(precedentUnits)): # per ogni neurone precedente
-                    self.weightsForUnit[i]+= round(self.learningRate*self.lastDelta*precedentUnits[i].lastOut,9)
-             
+                    self.weightsForUnit[i]+= self.learningRate*self.lastDelta*precedentUnits[i].lastOut
+                # aggiorno il bias
+                self.bias = self.learningRate * self.lastDelta
+
             else:
                 tmp_deltaxW = 0
                 for i in range(len(successiveUnits)): # per ogni peso del livello successivo
                     tmp_deltaxW +=  successiveUnits[i].lastDelta*successiveUnits[i].weightsForUnit[self.id] 
                 tmp_deltaxW = tmp_deltaxW * (activation_functions.derivative(self.activationFunction))(self.lastNet)
-                self.lastDelta = round(tmp_deltaxW,9)
+                self.lastDelta = tmp_deltaxW
                 for i in range(len(self.weightsForUnit)):
-                    self.weightsForUnit[i]+= round(self.learningRate*self.lastDelta*self.lastOut,9)
-            
+                    self.weightsForUnit[i]+= self.learningRate*self.lastDelta*self.lastOut
+                if not self.isInput:
+                    self.bias = self.learningRate * self.lastDelta
