@@ -5,14 +5,14 @@ import numpy as np
 
 # per adesso legge solo il TR
 # legge l'intera riga
-def read_TR():
+def read_set(filename):
 
     training_set = []
     numero_di_riga_iniziale = 7  # controllare che non ne salti una 
 
     # with è utilizzato per aprire un file e garantire che venga chiuso correttamente alla fine, 
     # anche se si verifica un'eccezione nel blocco di codice.
-    with open('ML-CUP23-TR.csv', 'r') as file:
+    with open(filename, 'r') as file:
         
         # Creare un lettore CSV
         lettore_csv = csv.reader(file)
@@ -33,7 +33,7 @@ def read_TR():
     std_dev_values = np.std(training_set, axis=0)
     normalized_tr = (training_set - mean_values) / std_dev_values
 
-    return normalized_tr
+    return (normalized_tr, std_dev_values, mean_values)
 
 
 
