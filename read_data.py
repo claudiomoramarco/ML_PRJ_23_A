@@ -28,7 +28,25 @@ def read_set(filename):
     return data_set
 
 
-        
+def read_forClassification(filename):
+    targets = []
+    inputs = []
+    with open(filename, 'r') as file:
+        for line in file:
+            # Dividi la riga in una lista di stringhe
+            values = line.split()
+
+            # Aggiungi il primo numero a "target"
+            targets.append(int(values[0]))
+
+            # Aggiungi i successivi valori a "inputs" come lista di interi
+            input_features = list(map(int, values[1:-1]))
+            inputs.append(input_features)
+    
+    return(inputs, targets)
+
+
+
 def normalize_data(data_set, std_dev_values, mean_values ):
     normalized_data = (data_set - mean_values) / std_dev_values
     return normalized_data
