@@ -74,7 +74,7 @@ class NN:
                 for j in range(self.numberHiddenLayers, 0, -1): 
                     self.layers[j].backpropagation(self.layers[j-1].units,self.layers[j+1].units,None)
 
-
+            
 
             # CALCOLO E STAMPA DELLA LOSS
             meanSquared = loss.mse(self.tr_targets,epochoutput)

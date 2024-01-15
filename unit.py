@@ -76,6 +76,11 @@ class Unit:
                 delta = (target-self.lastOut)*(activation_functions.derivative(self.activationFunction))(self.lastNet)
                 self.lastDelta = delta # salvo l'ultimo delta calcolato
                 for i in range(len(precedentUnits)): # per ogni neurone precedente
+                    # if i == 0:
+                        # print(self.weightsForUnit[i])
+                        # print(self.learningRate)
+                        # print(self.lastDelta)
+                        # print(precedentUnits[i].lastOut)
                     self.weightsForUnit[i]+= self.learningRate*self.lastDelta*precedentUnits[i].lastOut
                 # aggiorno il bias
                 self.bias = self.learningRate * self.lastDelta
