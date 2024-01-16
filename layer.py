@@ -3,7 +3,7 @@ import unit
 
 class Layer:
 
-    def __init__(self, isInput, isOutput, isHidden, nUnits, precedentIsInput, numberInputUnits, numberUnitsForHLayer, learningRate, activation_function):
+    def __init__(self, isInput, isOutput, isHidden, nUnits, precedentIsInput, numberInputUnits, numberUnitsForHLayer, learningRate, activation_function, isClassification):
         if (isInput + isOutput > 1) or (isInput + precedentIsInput > 1) or (isInput+isOutput+isHidden==0):
             print("Layer:__init__: errore")
             return
@@ -14,6 +14,7 @@ class Layer:
         self.nUnits = nUnits
         self.precedentIsInput = precedentIsInput
         self.learningRate = learningRate
+        self.isClassification = isClassification
 
         #servono per sapere il numero di unità precedenti
         self.numberInputUnits = numberInputUnits
@@ -24,7 +25,7 @@ class Layer:
         # array delle unità nel layer, dimensione self.nUnits
         self.units = [] 
         for i in range(self.nUnits):
-            unit_new = unit.Unit(self.isInput, self.isOutput, self.isHidden, self.precedentIsInput, self.learningRate, i, self.activationFunction)
+            unit_new = unit.Unit(self.isInput, self.isOutput, self.isHidden, self.precedentIsInput, self.learningRate, i, self.activationFunction, self.isClassification)
             if not unit_new.isInput:
                 unit_new.initializeWeightsForUnit(self.numberInputUnits, self.numberUnitsForHLayer)
 

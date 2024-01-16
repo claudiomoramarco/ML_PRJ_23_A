@@ -7,7 +7,7 @@ import numpy as np
 # legge l'intera riga
 def read_set(filename):
 
-    training_set = []
+    data_set = []
     numero_di_riga_iniziale = 7  # controllare che non ne salti una 
 
     # with è utilizzato per aprire un file e garantire che venga chiuso correttamente alla fine, 
@@ -22,22 +22,33 @@ def read_set(filename):
         righe_selezionate = tutte_le_righe[numero_di_riga_iniziale:]
 
         for riga in righe_selezionate:
-            training_set.append(riga[1:])
-
-    training_set = np.array(training_set)
-    training_set = training_set.astype(float)
+            data_set.append(riga[1:])
 
 
-    # NORMALIZZAZIONE DEI DATI
-    mean_values = np.mean(training_set, axis=0)
-    std_dev_values = np.std(training_set, axis=0)
-    normalized_tr = (training_set - mean_values) / std_dev_values
-
-    return (normalized_tr, std_dev_values, mean_values)
+    return data_set
 
 
+def read_forClassification(filename):
+    targets = []
+    inputs = []
+    with open(filename, 'r') as file:
+        for line in file:
+            # Dividi la riga in una lista di stringhe
+            values = line.split()
 
-        
+            # Aggiungi il primo numero a "target"
+            targets.append(int(values[0]))
 
+            # Aggiungi i successivi valori a "inputs" come lista di interi
+            input_features = list(map(int, values[1:-1]))
+            inputs.append(input_features)
+    
+    return(inputs, targets)
+
+
+
+def normalize_data(data_set, std_dev_values, mean_values ):
+    normalized_data = (data_set - mean_values) / std_dev_values
+    return normalized_data
 
 

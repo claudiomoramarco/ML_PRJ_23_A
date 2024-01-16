@@ -1,23 +1,28 @@
 import layer
 import activation_functions
 import loss
+import numpy as np
 
 class NN:
 
     # sto supponendo che ogni hidden layer abbia stesso numero di neuroni
-    def __init__(self, numberInputUnits, numberOutputUnits, numberUnitsForHLayer, numberHiddenLayers, learningRate, activationFunctionForHidden):
+    def __init__(self, numberInputUnits, numberOutputUnits, numberUnitsForHLayer, numberHiddenLayers, learningRate, activationFunctionForHidden, isClassification):
         self.numberInputUnits = numberInputUnits
         self.numberOutputUnits = numberOutputUnits
         self.numberUnitsForHLayer = numberUnitsForHLayer
         self.numberHiddenLayers = numberHiddenLayers
         self.learningRate = learningRate
         self.activationFunctionForHidden = activationFunctionForHidden
+        self.isClassification = isClassification
 
 
 
 
     def run_training(self, tr_data, tr_targets, numberEpochs): 
-
+        
+        if self.isClassification:
+            tr_targets = [[value] for value in tr_targets]
+        
         if (len(tr_data[0]) != self.numberInputUnits) or (len(tr_targets[0]) != self.numberOutputUnits):
             print("NN:run_training: ERROR")
             return
@@ -28,22 +33,25 @@ class NN:
         # CREAZIONE DEI LAYER 
         self.layers = []
         #inputLayer 
-        self.layers.append(layer.Layer(1,0,0,self.numberInputUnits,0,self.numberInputUnits,self.numberUnitsForHLayer, self.learningRate, activation_functions.linear))
+        self.layers.append(layer.Layer(1,0,0,self.numberInputUnits,0,self.numberInputUnits,self.numberUnitsForHLayer, self.learningRate, activation_functions.linear, self.isClassification))
         # creazione hidden layers 
         for i in range(self.numberHiddenLayers):
             if i == 0: # il primo 
-                self.layers.append(layer.Layer(0,0,1,self.numberUnitsForHLayer, 1, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, self.activationFunctionForHidden))
+                self.layers.append(layer.Layer(0,0,1,self.numberUnitsForHLayer, 1, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, self.activationFunctionForHidden, self.isClassification))
             else: 
-                self.layers.append(layer.Layer(0,0,1,self.numberUnitsForHLayer, 0, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, self.activationFunctionForHidden))
+                self.layers.append(layer.Layer(0,0,1,self.numberUnitsForHLayer, 0, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, self.activationFunctionForHidden, self.isClassification))
+        
         #creazione output layer
-        self.layers.append(layer.Layer(0,1,0,self.numberOutputUnits,self.numberHiddenLayers == 0, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, activation_functions.linear))
+        if self.isClassification:
+            self.layers.append(layer.Layer(0,1,0,self.numberOutputUnits,self.numberHiddenLayers == 0, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, activation_functions.sigmoid, self.isClassification))
+        else:    
+            self.layers.append(layer.Layer(0,1,0,self.numberOutputUnits,self.numberHiddenLayers == 0, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, activation_functions.linear, self.isClassification))
        
 
         mseList = [] # lista dei mse, uno per ogni epoca
 
         for k in range(numberEpochs):
-
-
+            
             epochoutput = [] # intero output dopo un'epoca
             
             # ESECUZIONE DEI LAYER IN ORDINE => per ogni tr_data[i]
@@ -74,14 +82,20 @@ class NN:
                 for j in range(self.numberHiddenLayers, 0, -1): 
                     self.layers[j].backpropagation(self.layers[j-1].units,self.layers[j+1].units,None)
 
-
-
+            
             # CALCOLO E STAMPA DELLA LOSS
-            meanSquared = loss.mse(self.tr_targets,epochoutput)
-            print(meanSquared)
-            mseList.append(meanSquared)
-        
+            if not self.isClassification: 
+                meanSquared = loss.mse(self.tr_targets,epochoutput)
+                print(meanSquared)
+                mseList.append(meanSquared)
+            
+            else: 
+                mseList.append(epochoutput) # non è mse in questo caso
+
+
         return mseList
+
+        
 
 
     # qua tutti i parametri della rete esistono già 

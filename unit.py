@@ -5,7 +5,7 @@ import sys
 class Unit:
 
     # da aggiungere funzione di attivazione
-    def __init__(self, isInput, isOutput, isHidden, precedentIsInput, learningRate, id, activation_function):
+    def __init__(self, isInput, isOutput, isHidden, precedentIsInput, learningRate, id, activation_function, isClassification):
         if (isInput + isOutput > 1) or (isInput + precedentIsInput > 1) or (isInput+isOutput+isHidden == 0):
             print("Unit:__init__: errore")
             return
@@ -22,6 +22,7 @@ class Unit:
         self.lastOut = 1
         self.lastNet = 1
         self.bias = 0 # inizia 0 (ok?)
+        self.isClassification = isClassification
 
 
 
@@ -51,6 +52,7 @@ class Unit:
             net = inputs # singolo valore 
             output = net 
         
+
         else:
             
             if len(inputs) != len(self.weightsForUnit): # +1 per il bias
@@ -59,11 +61,15 @@ class Unit:
                 
             net = self.bias + np.dot(inputs,self.weightsForUnit)
             output = net
+
     
         # salvo l'ultimo net e l'ultimo output calcolato 
         self.lastNet = net # ultimo net calcolato
         self.lastOut = self.activationFunction(net) # ultimo output calcolato
         
+        if self.isOutput and self.isClassification:
+            self.lastOut = 1 if self.lastOut >= 0.5 else 0
+
         return(self.lastOut,self.lastNet)
     
 
@@ -76,6 +82,11 @@ class Unit:
                 delta = (target-self.lastOut)*(activation_functions.derivative(self.activationFunction))(self.lastNet)
                 self.lastDelta = delta # salvo l'ultimo delta calcolato
                 for i in range(len(precedentUnits)): # per ogni neurone precedente
+                    # if i == 0:
+                        # print(self.weightsForUnit[i])
+                        # print(self.learningRate)
+                        # print(self.lastDelta)
+                        # print(precedentUnits[i].lastOut)
                     self.weightsForUnit[i]+= self.learningRate*self.lastDelta*precedentUnits[i].lastOut
                 # aggiorno il bias
                 self.bias = self.learningRate * self.lastDelta
