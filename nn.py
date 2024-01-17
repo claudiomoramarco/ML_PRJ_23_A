@@ -16,6 +16,7 @@ class NN:
         self.isClassification = isClassification
 
 
+#########################################################################################################
 
 
     def run_training(self, tr_data, tr_targets, numberEpochs): 
@@ -25,7 +26,7 @@ class NN:
         
         if (len(tr_data[0]) != self.numberInputUnits) or (len(tr_targets[0]) != self.numberOutputUnits):
             print("NN:run_training: ERROR")
-            return
+            exit()
 
         # salvo i targets 
         self.tr_targets = tr_targets
@@ -69,8 +70,7 @@ class NN:
                     currentOutputs = ret[0]
                     precedentOutputs = currentOutputs # per chiamare il prossimo layer
                 # stampo l'output di ogni esempio per prova 
-                # print("OUTPUT", i)
-                # print(currentOutputs)
+                
                 
                 epochoutput.append(currentOutputs)
 
@@ -89,22 +89,23 @@ class NN:
                 print(meanSquared)
                 mseList.append(meanSquared)
             
-            else: 
-                mseList.append(epochoutput) # non è mse in questo caso
+            else: # classificazione
+                # voglio valutare che percentuale di target di classificazione azzecca
+                # confronto epochoutput con target 
+                to_plot = loss.percentClassification(self.tr_targets,epochoutput)
+                # to_plot = loss.mse(self.tr_targets, epochoutput)
+                mseList.append(to_plot) # in questo caso sono percentuali, non mse
 
 
         return mseList
 
         
 
+#########################################################################################################
 
     # qua tutti i parametri della rete esistono già 
     def run_test(self, test_data, test_targets):
-        
-        print(len(test_data[0]))
-        print( self.numberInputUnits)
-        print(len(test_targets[0]))
-        print(self.numberOutputUnits)        
+            
 
         if (len(test_data[0]) != self.numberInputUnits) or (len(test_targets[0]) != self.numberOutputUnits):
             print("NN:run_test: ERROR")

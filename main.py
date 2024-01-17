@@ -55,10 +55,10 @@ else:
                     exit()
             # rete nuova
             else:
-                network_instance = nn.NN(len(inputs[0]), len(targets[0]), 20, 2, 0.001, activation_functions.relu, 0)
+                network_instance = nn.NN(len(inputs[0]), len(targets[0]), 15, 1, 0.002, activation_functions.relu, 0)
             
             meanerrors = network_instance.run_training(inputs,targets,numberEpochs)
-
+            # print(meanerrors)
             # Salva l'istanza della rete su un file => NON SO SE FUNZIONA
             with open('rete.pkl', 'wb') as file:
                 pickle.dump(network_instance, file)
@@ -80,14 +80,25 @@ else:
             training_set = read_data.read_forClassification(filename)
             inputs = training_set[0]
             targets = training_set[1]
-            targets = np.array(targets)
             if network_is_new == '0':
                 print("Aggiungere lettura old network")
             else: 
-                network_instance = nn.NN(len(inputs[0]), 1 , 20, 2, 0.001, activation_functions.relu, 1)
+                # targets = [[value] for value in targets]
+                # network_instance = nn.NN(len(inputs[0]), 1 , 15 , 1 , 0.2 , activation_functions.sigmoid, 1)
+                network_instance = nn.NN(len(inputs[0]), 1 , 15 , 1 , 0.2 , activation_functions.sigmoid, 1)
                 meanerrors = network_instance.run_training(inputs,targets,numberEpochs)
-                print(meanerrors)
-    
+                # print(meanerrors)
+                # STAMPO GRAFICO DELLA MSE 
+                # Lista del numero di epoche
+                epochs = list(range(1, len(meanerrors) + 1))
+                # Creazione del grafico
+                plt.plot(epochs, meanerrors, marker='o', linestyle='-', color='r')
+                plt.title('Percentuale di output corretti rispetto al numero di epoche')
+                plt.xlabel('Numero di epoche')
+                plt.ylabel('%')
+                plt.grid(True)
+                plt.show()
+
 
 
     else: # isTest 

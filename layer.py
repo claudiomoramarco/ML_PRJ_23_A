@@ -32,7 +32,7 @@ class Layer:
             self.units.append(unit_new)
 
         
-
+#########################################################################################################
 
     # restituisce il suo output e il suo net
     # oldSuccessiveNets mi serve per dopo per la backpropagation => forse non qui (per adesso non lo metto)
@@ -62,7 +62,22 @@ class Layer:
                 currentNets.append(net)
             oldPrecedentOutputs = currentOutputs
 
+        # ci dovrebbero essere 2 neuroni
+        if self.isClassification and self.isOutput:
+
+            if len(currentOutputs) != 1:
+                print("layer:computeLayerOutput:ERROR")
+                exit()
+            if currentOutputs[0] >= 0.5:
+                currentOutputs = [1]
+            else:
+                currentOutputs = [0]
+       
         return (currentOutputs,currentNets)
+
+
+
+#########################################################################################################
 
 
 

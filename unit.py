@@ -25,6 +25,8 @@ class Unit:
         self.isClassification = isClassification
 
 
+#########################################################################################################
+        
 
     def initializeWeightsForUnit(self, numberInputUnits, numberUnitsForHLayer):
             # ogni unità mantiene un array dei pesi dei collegamenti delle unità del PRECEDENTE layer con l'unità corrente 
@@ -34,13 +36,20 @@ class Unit:
                 print("Unit:initializeWeightsForUnit:ERROR")
                 return
             
+            # regression (0.5, 0.01, numberInputUnits)
+            # classification 90% (0, 0.25, numberInputUnits)
+
+            
+            np.random.seed(self.id)
             if self.precedentIsInput:
-                self.weightsForUnit = np.random.normal(0, 0.01, numberInputUnits) 
+                self.weightsForUnit = np.random.normal(0, 0.25, numberInputUnits)
             else:
-                self.weightsForUnit = np.random.normal(0, 0.01, numberUnitsForHLayer) 
+                self.weightsForUnit = np.random.normal(0, 0.25, numberUnitsForHLayer) 
+            
 
-
-
+#########################################################################################################
+                
+   
     # restituisce il valore di net e output
     # input è il vettore degli input 
     def computeUnitOutput(self, inputs): 
@@ -58,38 +67,32 @@ class Unit:
             if len(inputs) != len(self.weightsForUnit): # +1 per il bias
                 print("Unit:computOutput:ERROR")
                 exit()      
-                
             net = self.bias + np.dot(inputs,self.weightsForUnit)
             output = net
+        
 
     
         # salvo l'ultimo net e l'ultimo output calcolato 
         self.lastNet = net # ultimo net calcolato
         self.lastOut = self.activationFunction(net) # ultimo output calcolato
         
-        if self.isOutput and self.isClassification:
-            self.lastOut = 1 if self.lastOut >= 0.5 else 0
-
         return(self.lastOut,self.lastNet)
     
 
+#########################################################################################################
 
     # target è il target corrispondente al neurone, serve solo nel caso dell'output layer
     # successiveUnits sono i neuroni del layer successivo, non servono per l'output layer
     def updateWeights(self, precedentUnits, successiveUnits,  target): 
-        
+            
             if self.isOutput:
                 delta = (target-self.lastOut)*(activation_functions.derivative(self.activationFunction))(self.lastNet)
                 self.lastDelta = delta # salvo l'ultimo delta calcolato
                 for i in range(len(precedentUnits)): # per ogni neurone precedente
-                    # if i == 0:
-                        # print(self.weightsForUnit[i])
-                        # print(self.learningRate)
-                        # print(self.lastDelta)
-                        # print(precedentUnits[i].lastOut)
                     self.weightsForUnit[i]+= self.learningRate*self.lastDelta*precedentUnits[i].lastOut
                 # aggiorno il bias
                 self.bias = self.learningRate * self.lastDelta
+    
 
             else:
                 tmp_deltaxW = 0
@@ -101,3 +104,4 @@ class Unit:
                     self.weightsForUnit[i]+= self.learningRate*self.lastDelta*self.lastOut
                 if not self.isInput:
                     self.bias = self.learningRate * self.lastDelta
+            
