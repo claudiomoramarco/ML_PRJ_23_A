@@ -3,7 +3,6 @@ import numpy as np
 
 # from itertools import islice
 
-# per adesso legge solo il TR
 # legge l'intera riga
 def read_set(filename):
 
@@ -44,13 +43,13 @@ def read_forClassification(filename):
             inputs.append(input_features)
     
 
-    tmp = []
-    for inp in inputs:
-        tmp.append(oneHotEncodingInput(inp)) 
-    inputs = tmp
-    tmp = []
-  
-    return(inputs, targets)
+    input_tmp = []
+    # targets_tmp = []
+    for i in range(len(inputs)):
+        input_tmp.append(oneHotEncodingInput(inputs[i]))
+        # targets_tmp.append(oneHotEncodingTarget(targets[i]))
+    
+    return(input_tmp, targets)
 
 
 
@@ -96,4 +95,3 @@ def oneHotEncodingTarget(t):
     if t == 0:
         return [0,1]
     return [1,0]
-
