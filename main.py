@@ -28,45 +28,46 @@ else:
 
             # lettura TR
             training_set = read_data.read_forClassification(filename)
-            inputs = training_set[0]
-            targets = training_set[1]
+            inputs = np.array(training_set[0])
+            targets = np.array(training_set[1])
             
             # layer_sizes => dimensioni degli hidden layers, seguite dalle dimensioni dell'output layer
             layer_sizes = [len(inputs[0]), 10, 1]
             # learning rate 
-            learning_rate = 0.0001
+            learning_rate = 0.1
             # creazione e addestramento rete
-            network_instance = nn.NN(layer_sizes, learning_rate, activation_functions.relu , activation_functions.sigmoid, loss.binary_crossentropy , 1)
+            network_instance = nn.NN(layer_sizes, learning_rate, activation_functions.sigmoid , activation_functions.sigmoid, loss.binary_crossentropy , 1)
             ret = network_instance.run_training(inputs,targets,numberEpochs)
             loss_values = ret[0]
             outputs = ret[1] # output finali dopo tutte le epoche 
             # calcolo accuracy per ogni epoca ( e trasformo l'output in 0 e 1 )
             accuracy = []
-
-            print(outputs)
+            
             for out in outputs: 
+                out = np.ravel(out)
                 for i in range(len(out)):
                     
                     if out[i] >= 0.5:
                         out[i] = 1
                     else:
                         out[i] = 0
-
+                print(out)
                 accuracy.append(loss.percentClassification(targets,out))
 
+            # Lista del numero di esempi
+            epochs = list(range(1, len(loss_values) + 1))
 
 
             # GRAFICO LOSS 
-            # Lista del numero di epoche
-            epochs = list(range(1, len(loss_values) + 1))
-            # Creazione del grafico
             plt.plot(epochs, loss_values , marker='o', linestyle='-', color='r')
             plt.xlabel('Numero di epoche')
             plt.ylabel('Loss')
             plt.grid(True)
             plt.show()
+
+            # Lista numero di epoche 
+
             # GRAFICO ACCURACY
-            print(accuracy)
             plt.plot(epochs, accuracy , marker='o', linestyle='-', color='b')
             plt.xlabel('Numero di epoche')
             plt.ylabel('Accuracy')

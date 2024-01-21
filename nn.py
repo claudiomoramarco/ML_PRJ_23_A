@@ -7,132 +7,107 @@ class NN:
     # layer sizes passato dall'esterno
     def __init__(self, layer_sizes, learningRate, activationFunctionForHidden, activationFunctionForOutput, lossFunction, isClassification):
         self.learningRate = learningRate
-        self.isClassification = isClassification
-        self.activationFunctionForHidden = activationFunctionForHidden
-        self.activationFunctionForOutput = activationFunctionForOutput
-        self.lossFunction = lossFunction
+        # self.isClassification = isClassification
+        # self.activationFunctionForHidden = activationFunctionForHidden
+        # self.activationFunctionForOutput = activationFunctionForOutput
+        # self.lossFunction = lossFunction
         self.layer_sizes = layer_sizes # contiene la lista del numero di neuroni di ogni layer
         self.weights = []
         self.biases = []
-        self.initialize_weights()
+        # self.initialize_weights()
 
+    def sigmoid(self,x):
+        return 1 / (1 + np.exp(-x))
 
-#########################################################################################################
+    def binary_crossentropy(self,y_true, y_pred):
+        y_pred = np.ravel(y_pred)
+        # Calcola la Binary Crossentropy per un singolo esempio
+        return - (y_true * np.log(y_pred) + (1 - y_true) * np.log(1 - y_pred))
+
+    def binary_crossentropy_derivative(self, y_true, y_pred):
+        # Calcola la derivata della Binary Crossentropy rispetto a y_pred
+        return - (y_true / y_pred - (1 - y_true) / (1 - y_pred))
+
+    def update_weights(self, weights, gradients, learning_rate):
+        # Aggiorna i pesi usando la discesa del gradiente
+        return weights - learning_rate * gradients
+    
+    def run_training(self, tr_data, tr_targets, numberEpochs):
+
         
-    # Inizializza pesi e bias in modo casuale
-    def initialize_weights(self):
-        
+        loss_tot = []
+        outputs_tot = []
+
+        # Inizializza pesi e bias in modo casuale
         np.random.seed(42)
-       
-        for i in range(len(self.layer_sizes)-1):
-            
-            self.weights.append(np.random.normal(0,  np.sqrt(2/self.layer_sizes[i]) ,(self.layer_sizes[i], self.layer_sizes[i+1])))
-            self.biases.append(np.zeros((1, self.layer_sizes[i+1])))
-
-#########################################################################################################
-
-    def forward_pass(self, inputs):
-
-        # Lista per salvare gli output di ogni layer
-        self.layer_outputs = [inputs]
-        # Input per il primo layer
-        layer_input = inputs
-
-        # Itera attraverso tutti i layer
-        for i in range(len(self.layer_sizes)-1):
-            # Calcola l'output per il layer corrente
-            if i == len(self.layer_sizes)-2:
-                layer_output = self.activationFunctionForOutput(np.dot(layer_input,self.weights[i]) + self.biases[i])
-            else:   
-                layer_output = self.activationFunctionForHidden(np.dot(layer_input, self.weights[i]) + self.biases[i])
-
-            # Aggiungi l'output alla lista
-            self.layer_outputs.append(layer_output)
-
-            # L'output del layer corrente diventa l'input per il prossimo layer
-            layer_input = layer_output
-
-        return self.layer_outputs[-1]
-
-
-#########################################################################################################
-
-    def backward_pass(self, target):
-
-        # Calcola il gradiente della loss rispetto all'output del layer di output
-        output_gradient = loss.derivative(self.lossFunction)( target , self.layer_outputs[-1])
-
-        # Itera all'indietro attraverso i layer per aggiornare i pesi
-        for i in reversed(range(len(self.layer_sizes))):
-
-            # Calcola il gradiente rispetto all'input del layer corrente
-            if i == len(self.layer_sizes)-1:
-                derivative_values = activation_functions.derivative(self.activationFunctionForOutput)(self.layer_outputs[i])
-            else: 
-                derivative_values = activation_functions.derivative(self.activationFunctionForHidden)(self.layer_outputs[i])
-
-
-            derivative = output_gradient * derivative_values
-        
-            # Aggiorna i pesi e i bias del layer corrente
-            self.update_weights_and_biases(derivative, self.layer_outputs[i], self.learningRate, i-1)
-
-            # Calcola il gradiente per il layer precedente
-            if i > 0:
-                output_gradient = np.dot(derivative, np.transpose(self.weights[i-1]))
-
-#########################################################################################################
+        weights_hidden = np.random.normal(0, 1,  (self.layer_sizes[0] , self.layer_sizes[1]))
+        bias_hidden = np.zeros((1, self.layer_sizes[1]))
+        weights_output = np.random.normal(0, 1, (self.layer_sizes[1], self.layer_sizes[2]))
+        bias_output = np.zeros((1, self.layer_sizes[2]))
     
-    def run_training(self, tr_data, tr_targets, numberEpochs):  
-        
 
-        loss_epochs = []
-        final_outputs = []
-
+        # Addestramento del modello
         for epoch in range(numberEpochs):
+            
+            output_epoch = []
 
-            epoch_loss = 0.0
-            epoch_outputs = []
-
-            # Itera su tutti i dati di training
             for i in range(len(tr_data)):
-                # print(i)
-                # Esegui il passaggio in avanti
-                inputs = tr_data[i]
-                targets = tr_targets[i]
-                outputs = self.forward_pass(inputs)
+                # Forward propagation
+                hidden_output = np.ravel(self.sigmoid(np.dot(tr_data[i], weights_hidden) + bias_hidden))
+                final_output = np.ravel(self.sigmoid(np.dot(hidden_output, weights_output) + bias_output))
 
-                # Calcola la loss
-                loss_value = self.lossFunction(targets, outputs)
+                output_epoch.append(final_output)
 
-                epoch_loss += loss_value
+                # Calcolo della Binary Crossentropy
+                loss = self.binary_crossentropy(tr_targets[i], final_output)
+                # loss_tot.append(loss)  # serve per il return
+                loss_sum = 0
 
-                # Esegui il passaggio all'indietro per aggiornare i pesi
-                self.backward_pass(targets)
+                # Calcolo della derivata della Binary Crossentropy rispetto a y_pred
+                d_loss = self.binary_crossentropy_derivative(tr_targets[i], final_output)
 
-                # Aggiungi gli output correnti all'array degli output per l'epoca
-                epoch_outputs.append(outputs)
+                # Backpropagation
+                d_output = d_loss * final_output * (1 - final_output)
+                d_hidden = np.dot(d_output, np.transpose(weights_output)) * hidden_output * (1 - hidden_output)
 
-            # Calcola la media della loss per l'epoca
-            epoch_loss /= len(tr_data)
-            loss_epochs.append(epoch_loss)
-            final_outputs.append(np.ravel(epoch_outputs))
+                #  Calcolo dei gradienti e aggiornamento dei pesi
+                weights_output = self.update_weights(weights_output, np.outer(hidden_output, d_output), self.learningRate)
+                bias_output = self.update_weights(bias_output, d_output, self.learningRate)
+                weights_hidden = self.update_weights(weights_hidden, np.outer(tr_data[i], d_hidden), self.learningRate)
+                bias_hidden = self.update_weights(bias_hidden, np.sum(d_hidden, axis=0, keepdims=True), self.learningRate)
+                
+                loss_sum += loss
 
-        return loss_epochs, final_outputs
+            # Stampa la loss ogni epoca
+            print("Loss: ", loss_sum/len(tr_data))
+            loss_tot.append(loss_sum/len(tr_data))
+            outputs_tot.append(output_epoch)
 
 
-#########################################################################################################
+        return (loss_tot, outputs_tot)
+                # # Forward propagation
+                # hidden_output = np.ravel(self.sigmoid(np.dot(tr_data[i], weights_hidden)+bias_hidden))
+                # final_output = np.ravel(self.sigmoid(np.dot(hidden_output, weights_output) + bias_output))
+
+                # #Calcolo della Binary Crossentropy 
+                # loss = self.binary_crossentropy(tr_targets[i], final_output)
+                # loss_tot.append(loss) # serve per il return
+             
+                # # Calcolo della derivata della Binary Crossentropy rispetto a y_pred
+                # d_loss = self.binary_crossentropy_derivative(tr_targets[i], final_output)
+                
+                # # Backpropagation
+                # d_output = d_loss * final_output * (1 - final_output)
+                # # d_output = [d_output]
     
-
-    def update_weights_and_biases(self, input_gradient, layer_output, learning_rate, index):
+                # d_hidden = d_output * weights_output * hidden_output * (1 - hidden_output)
+                
         
-        # Calcola l'aggiornamento dei pesi
-        weights_update = np.dot(np.transpose(layer_output), input_gradient)
+    
+                # # Calcolo dei gradienti e aggiornamento dei pesi
+                # weights_output = self.update_weights(np.ravel(weights_output), hidden_output*d_output, self.learningRate)
+                # bias_output = self.update_weights(bias_output, d_output , self.learningRate)
+                # # weights_hidden = self.update_weights(weights_hidden, tr_data[i] * d_hidden), self.learningRate)
+                # bias_hidden = self.update_weights(bias_hidden, np.sum(d_hidden, axis=0, keepdims=True), self.learningRate)
 
-        # Calcola l'aggiornamento dei bias
-        biases_update = np.sum(input_gradient, axis=0, keepdims=True)
-         
-        # Applica l'aggiornamento dei pesi e dei bias
-        clip_value = 1
-        self.weights[index] -= learning_rate * np.clip(weights_update, -clip_value, clip_value)
-        self.biases[index] -= learning_rate * np.clip(biases_update, -clip_value, clip_value)
+        #     
