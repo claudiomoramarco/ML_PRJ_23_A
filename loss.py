@@ -1,22 +1,27 @@
 import numpy as np
 
-#calcola la MSE dopo un'epoca
-def mse(tr_targets, outputs):
-    if len(outputs) != len(tr_targets):
-        print("loss:mse:ERROR")
-        exit()
+# #calcola la MSE dopo un'epoca
+# def mse(tr_targets, outputs):
     
-    # Conversione delle liste in array NumPy
-    outputs = np.array(outputs)
-    tr_targets = np.array(tr_targets)
-    
-    mean_squared = np.mean(np.square(outputs - tr_targets))
-    return mean_squared
+#     # # Conversione delle liste in array NumPy
+#     # outputs = np.array(outputs)
+#     # tr_targets = np.array(tr_targets)
+#     mean_squared = np.mean(np.square(outputs - tr_targets))
+#     return mean_squared
 
 
 #########################################################################################################
 
+def mean_squared_error(y_true, y_pred):
+    # print(y_true)
+    # print("ciao")
+    # print(y_pred)
+    return np.mean((y_true - y_pred)**2)
 
+def mean_squared_error_derivative(y_true, y_pred):
+    return 2 * np.mean(y_pred - y_true)
+
+#########################################################################################################
 # tr_targets e outputs sono due liste di booleani
 def percentClassification(tr_targets, outputs):
     
@@ -54,3 +59,10 @@ def update_weights(weights, gradients, learning_rate):
 def derivative(function):
     if function == binary_crossentropy:
         return binary_crossentropy_derivative
+    if function == mean_squared_error:
+        return mean_squared_error_derivative
+    else:
+        print("loss:derivative:ERROR")
+        exit()
+
+#########################################################################################################

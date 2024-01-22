@@ -29,11 +29,11 @@ class NN:
 
         # per gli hidden  
         for i in range(len(self.layer_sizes)-2):
-            self.weights_hiddens.append(np.random.normal(0, 1,  (self.layer_sizes[i] , self.layer_sizes[i+1])))             
+            self.weights_hiddens.append(np.random.normal(0, 0.1,  (self.layer_sizes[i] , self.layer_sizes[i+1])))             
             self.bias_hiddens.append(np.zeros((1, self.layer_sizes[i+1])))
 
         # per l'output layer 
-        self.weights_output = np.random.normal(0, 1, (self.layer_sizes[-2], self.layer_sizes[-1]))
+        self.weights_output = np.random.normal(0, 0.1, (self.layer_sizes[-2], self.layer_sizes[-1]))
         self.bias_output = np.zeros((1, self.layer_sizes[-1]))
 
 
@@ -110,7 +110,7 @@ class NN:
 
                 loss_sum = 0
 
-                # Calcolo della derivata della Binary Crossentropy rispetto a y_pred
+                # Calcolo della derivata della funzione di loss rispetto a y_pred
                 d_loss = loss.derivative(self.lossFunction)(tr_targets[i], final_output)
 
                 # Backpropagation

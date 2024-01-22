@@ -13,39 +13,49 @@ def linear(x):
 def linear1(x):
     return 1
 
-def relu(input):
-    input = np.ravel(input)
-    toRet = []
-    for x in input:
-        toRet.append(np.maximum(0,x))
-    return toRet
+#########################################################################################################
 
-def relu1(input):
-    input = np.ravel(input)
-    toRet = []
-    for x in input:
-        if x <= 0:
-            toRet.append(0)
-        else:
-            toRet.append(1)
-    return toRet
+# def relu(input):
+#     input = np.ravel(input)
+#     toRet = []
+#     for x in input:
+#         toRet.append(np.maximum(0,x))
+#     return toRet
 
+# def relu1(input):
+#     input = np.ravel(input)
+#     toRet = []
+#     for x in input:
+#         if x <= 0:
+#             toRet.append(0)
+#         else:
+#             toRet.append(1)
+#     return toRet
 
+def relu(x):
+    return np.maximum(0, x)
+
+def relu_derivative(x):
+    return np.where(x > 0, 1, 0)
+
+#########################################################################################################
 
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
 
 
-def sigmoid1(input):
-    sig = sigmoid(input)
-    sig = np.array(sig)
-    return sig * (1-sig)
+def sigmoid_derivative(input):
+    return sigmoid(input) * (1-sigmoid(input))
+
+#########################################################################################################
 
 def tanh(x):
     return np.tanh(x)
 
 def tanh1(x):
     return 1-pow(np.tanh,2)
+
+#########################################################################################################
     
 def softmax(x):
     exp_x = np.exp(x)
@@ -57,15 +67,15 @@ def softmax1(x):
     s = softmax(x)
     return s * (np.eye(len(s)) - s.reshape(-1, 1))
 
-
+#########################################################################################################
 
 def derivative(function):
     if function==linear:
         return linear1
     if function==relu:
-        return relu1
+        return relu_derivative
     if function==sigmoid:
-        return sigmoid1
+        return sigmoid_derivative
     if function==tanh:
         return tanh1
     if function==softmax:
@@ -73,3 +83,5 @@ def derivative(function):
     else:
         print("Derivative error")
         exit()
+
+#########################################################################################################

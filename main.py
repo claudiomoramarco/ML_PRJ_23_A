@@ -1,11 +1,7 @@
-import read_data
-import activation_functions
-import nn 
 import numpy as np
-import pickle # per salvare la rete
 import sys
-import matplotlib.pyplot as plt # visualizzazione
-import loss
+import training
+import testing
 
 # python3 main.py <isTraining> <isClassification> <epochsNumber> <filename> <filenameToSave>
 
@@ -29,90 +25,28 @@ else:
         
         # classificazione 
         if isClassification == '1':
-
-            # lettura TR
-            training_set = read_data.read_forClassification(filename)
-            inputs = np.array(training_set[0])
-            targets = np.array(training_set[1])
             
             # layer_sizes => dimensioni degli hidden layers, seguite dalle dimensioni dell'output layer
-            layer_sizes = [len(inputs[0]), 5 , 5 , 1]
+            layer_sizes = [10 , 1]
             # learning rate 
             learning_rate = 0.1
-            # creazione e addestramento rete
-            network_instance = nn.NN(layer_sizes, learning_rate, activation_functions.sigmoid , activation_functions.sigmoid, loss.binary_crossentropy , filenameToSave)
-            ret = network_instance.run_training(inputs,targets,numberEpochs)
-            loss_values = ret[0]
-            outputs = ret[1] # output finali dopo tutte le epoche 
-
-            # calcolo accuracy per ogni epoca 
-            accuracy = []
-            # trasformo ogni output in {0,1}
-            for out in outputs: 
-                out = np.ravel(out)
-                for i in range(len(out)):
-                    
-                    if out[i] >= 0.5:
-                        out[i] = 1
-                    else:
-                        out[i] = 0
-                accuracy.append(loss.percentClassification(targets,out))
-
-
-
-            # Lista del numero di epoche
-            epochs = list(range(1, len(loss_values) + 1))
-
-
-            # GRAFICO LOSS 
-            plt.plot(epochs, loss_values , marker='o', linestyle='-', color='r')
-            plt.xlabel('Numero di epoche')
-            plt.ylabel('Loss')
-            plt.grid(True)
-            plt.show()
-
-            # GRAFICO ACCURACY
-            plt.plot(epochs, accuracy , marker='o', linestyle='-', color='b')
-            plt.xlabel('Numero di epoche')
-            plt.ylabel('Accuracy')
-            plt.grid(True)
-            plt.show()
+            training.classificationTraining(filename, numberEpochs, filenameToSave,layer_sizes, learning_rate)
 
 
         else: # regressione
-            print("Regressione")
-            exit() 
-
+            # layer_sizes => dimensioni degli hidden layers 
+            hidden_layer_sizes = [10,10]
+            learning_rate = 0.0001
+            training.regressionTraining(filename, numberEpochs , filenameToSave, hidden_layer_sizes, learning_rate)
 
 
     # isTest 
     elif isTraining == "TS": 
-
-        # leggo da file i valori dei pesi dopo l'addestramento
-        try:
-            # Per caricare l'istanza della rete da un file
-            with open(filenameToSave, 'rb') as file:
-                network_instance = pickle.load(file)
-        
-        except FileNotFoundError:
-            print("Il file non esiste.")
+        if isClassification:
+            testing.classificationTesting(filename, filenameToSave)
+        else: # regression test
+            print("Regression Test")
             exit()
-        
-        # lettura TS 
-        test_set = read_data.read_forClassification(filename)
-        inputs = np.array(test_set[0])
-        targets = np.array(test_set[1])
-
-        # esecuzione del test sul file di test
-        outputs = network_instance.run_test(inputs)
-        for i in range(len(outputs)):
-            if outputs[i] >= 0.5:
-                outputs[i] = 1
-            else:
-                outputs[i] = 0
-        accuracy = loss.percentClassification(targets,outputs)
-        print("Accuracy: ", accuracy)
-
 
     else: 
         print("Specificare da riga di comando se si vuole eseguire un addestramento (TR) o un test (TS)")
@@ -120,29 +54,5 @@ else:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#########################################################################################################
+        
