@@ -1,6 +1,6 @@
 import read_data
 import activation_functions
-import nn
+import nn 
 import numpy as np
 import pickle # per salvare la rete
 import sys
@@ -36,7 +36,7 @@ else:
             targets = np.array(training_set[1])
             
             # layer_sizes => dimensioni degli hidden layers, seguite dalle dimensioni dell'output layer
-            layer_sizes = [len(inputs[0]), 10 , 1]
+            layer_sizes = [len(inputs[0]), 5 , 5 , 1]
             # learning rate 
             learning_rate = 0.1
             # creazione e addestramento rete
