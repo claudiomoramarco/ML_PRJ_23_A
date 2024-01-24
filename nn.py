@@ -1,129 +1,197 @@
-import layer
-import activation_functions
 import loss
 import numpy as np
+import pickle # per salvare la rete
+import sys
 
 class NN:
 
-    # sto supponendo che ogni hidden layer abbia stesso numero di neuroni
-    def __init__(self, numberInputUnits, numberOutputUnits, numberUnitsForHLayer, numberHiddenLayers, learningRate, activationFunctionForHidden, isClassification):
-        self.numberInputUnits = numberInputUnits
-        self.numberOutputUnits = numberOutputUnits
-        self.numberUnitsForHLayer = numberUnitsForHLayer
-        self.numberHiddenLayers = numberHiddenLayers
-        self.learningRate = learningRate
+    # layer sizes passato dall'esterno
+    def __init__(self, layer_sizes, learningRate, momentum, activationFunctionForHidden, activationFunctionForOutput, lossFunction, filenameToSave):
+        
         self.activationFunctionForHidden = activationFunctionForHidden
-        self.isClassification = isClassification
+        self.activationFunctionForOutput = activationFunctionForOutput
+        self.lossFunction = lossFunction
+        self.layer_sizes = layer_sizes # contiene la lista del numero di neuroni di ogni layer
+        self.filenameToSave = filenameToSave
+        self.learningRate = learningRate
+        self.momentum = momentum
+        self.initializeWeigths()
+        self.initialize_velocity()
 
-
-
-
-    def run_training(self, tr_data, tr_targets, numberEpochs): 
+#########################################################################################################
         
-        if self.isClassification:
-            tr_targets = [[value] for value in tr_targets]
-        
-        if (len(tr_data[0]) != self.numberInputUnits) or (len(tr_targets[0]) != self.numberOutputUnits):
-            print("NN:run_training: ERROR")
-            return
+    # Inizializza pesi e bias in modo casuale
+    def initializeWeigths(self):
+        np.random.seed(42)
+        self.weights_hiddens = []
+        self.bias_hiddens = []
 
-        # salvo i targets 
-        self.tr_targets = tr_targets
+        # per gli hidden  
+        for i in range(len(self.layer_sizes)-2):
+            self.weights_hiddens.append(np.random.normal(0, 0.1,  (self.layer_sizes[i] , self.layer_sizes[i+1])))             
+            self.bias_hiddens.append(np.zeros((1, self.layer_sizes[i+1])))
 
-        # CREAZIONE DEI LAYER 
-        self.layers = []
-        #inputLayer 
-        self.layers.append(layer.Layer(1,0,0,self.numberInputUnits,0,self.numberInputUnits,self.numberUnitsForHLayer, self.learningRate, activation_functions.linear, self.isClassification))
-        # creazione hidden layers 
-        for i in range(self.numberHiddenLayers):
-            if i == 0: # il primo 
-                self.layers.append(layer.Layer(0,0,1,self.numberUnitsForHLayer, 1, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, self.activationFunctionForHidden, self.isClassification))
+        # per l'output layer 
+        self.weights_output = np.random.normal(0, 0.1, (self.layer_sizes[-2], self.layer_sizes[-1]))
+        self.bias_output = np.zeros((1, self.layer_sizes[-1]))
+
+
+#########################################################################################################
+    
+    def initialize_velocity(self):
+        self.velocity_weights = [np.zeros((prev, curr)) for prev, curr in zip(self.layer_sizes[:-1], self.layer_sizes[1:])]
+        self.velocity_biases = [np.zeros((1, curr)) for curr in self.layer_sizes[1:]]
+
+#########################################################################################################
+    # con il momentum
+    def update_weights(self, weights, gradients, velocities):
+        velocities = self.momentum * velocities + (1 - self.momentum) * gradients
+        weights = weights - self.learningRate * velocities
+        return (weights, velocities)
+    
+#########################################################################################################
+    
+    def save_to_file(self):
+        with open(self.filenameToSave, 'wb') as file:
+            pickle.dump(self, file)
+    
+#########################################################################################################
+            
+    # data è l'iesimo pattern
+    def forwardpropagation(self, data):
+
+        hidden_outputs = []
+        for i in range(len(self.weights_hiddens)): # per gli hidden
+            if i == 0:
+                hidden_outputs.append(np.ravel(self.activationFunctionForHidden(np.dot(data, self.weights_hiddens[i]) + self.bias_hiddens[i])))
             else: 
-                self.layers.append(layer.Layer(0,0,1,self.numberUnitsForHLayer, 0, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, self.activationFunctionForHidden, self.isClassification))
+                hidden_outputs.append(np.ravel(self.activationFunctionForHidden(np.dot(hidden_outputs[i-1], self.weights_hiddens[i]) + self.bias_hiddens[i])))
         
-        #creazione output layer
-        if self.isClassification:
-            self.layers.append(layer.Layer(0,1,0,self.numberOutputUnits,self.numberHiddenLayers == 0, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, activation_functions.sigmoid, self.isClassification))
-        else:    
-            self.layers.append(layer.Layer(0,1,0,self.numberOutputUnits,self.numberHiddenLayers == 0, self.numberInputUnits, self.numberUnitsForHLayer, self.learningRate, activation_functions.linear, self.isClassification))
-       
+        final_output = np.ravel(self.activationFunctionForOutput(np.dot(hidden_outputs[-1], self.weights_output) + self.bias_output))
 
-        mseList = [] # lista dei mse, uno per ogni epoca
+        return (hidden_outputs,final_output) # final_output è l'output dell'output layer , hidden_outputs è l'array degli output di ogni hidden layer
 
-        for k in range(numberEpochs):
+#########################################################################################################
+    
+    # final_output è l'output del pattern considerato
+    # hidden_outputs[i] è l'output dell'hidden layer i-esimo del pattern considerato
+    # d_loss la derivata della loss rispetto all'output del pattern considerato
+    def backpropagation(self, d_loss, final_output, hidden_outputs):
+        d_output = d_loss * final_output * (1 - final_output) # per l'output layer
+        d_hiddens = [np.zeros_like(hidden_output) for hidden_output in hidden_outputs]
+        for i in range(len(self.weights_hiddens) - 1, -1, -1): #per gli hidden
+            if i == len(self.weights_hiddens)-1 : 
+                d_hiddens[i] = np.dot(d_output, np.transpose(self.weights_output)) * hidden_outputs[i] * (1 - hidden_outputs[i])
+            else: 
+                d_hiddens[i] = np.dot(d_hiddens[i+1], np.transpose(self.weights_hiddens[i+1])) * hidden_outputs[i] * (1 - hidden_outputs[i])
+        
+        return(d_hiddens,d_output) # con lo stesso criterio di forwardpropagation
+    
+
+#########################################################################################################
+    
+    def run_training(self, tr_data, tr_targets, numberEpochs, stop, batch_size):
+        
+        loss_tot = []
+        outputs_tot = []
+    
+        if stop > 0:
+            numberEpochs = sys.maxsize
+        else: 
+            stop = -sys.maxsize
+
+        # Addestramento del modello
+        for epoch in range(numberEpochs):
             
-            epochoutput = [] # intero output dopo un'epoca
-            
-            # ESECUZIONE DEI LAYER IN ORDINE => per ogni tr_data[i]
+            output_epoch = []
+
             for i in range(len(tr_data)):
+
+                if i%batch_size == 0: 
+                    # dichiara vuota l'array delle derivate della loss del batch 
+                    d_loss_batch = []
                 
-                #inputLayer 
-                ret = self.layers[0].computeLayerOutput(tr_data[i])
-                currentOutputs = ret[0]
-                precedentOutputs = currentOutputs # per chiamare il prossimo layer
+                # Forward propagation
+                ret = self.forwardpropagation(tr_data[i])
+                hidden_outputs = ret[0] # array degli output per ogni hidden  layer 
+                final_output = ret[1] # output dell'output layer
+                output_epoch.append(final_output)
 
-            
-                # hidden layers e output layer (+1)
-                for j in range(self.numberHiddenLayers+1):
-                    ret = self.layers[j+1].computeLayerOutput(precedentOutputs)
-                    currentOutputs = ret[0]
-                    precedentOutputs = currentOutputs # per chiamare il prossimo layer
-                # stampo l'output di ogni esempio per prova 
-                # print("OUTPUT", i)
-                # print(currentOutputs)
+                # Calcolo della Loss
+                loss_value = self.lossFunction(tr_targets[i], final_output) 
+
+                loss_sum = 0
+
+                # Calcolo della derivata della funzione di loss rispetto a y_pred
+                d_loss = loss.derivative(self.lossFunction)(tr_targets[i], final_output)
+                # salvo tra quelle del batch
+                d_loss_batch.append(d_loss)
                 
-                epochoutput.append(currentOutputs)
+                # ogni batch_size patterns oppure se è l'ultimo pattern 
+                if i%batch_size == batch_size-1 or i == len(tr_data)-1:
+                    # media delle derivate nel batch 
+                    d_loss_avg = np.mean(d_loss_batch) 
 
-                # APPRENDIMENTO 
-                # ciclo inverso sui layers 
-                # output layer 
-                self.layers[self.numberHiddenLayers+1].backpropagation(self.layers[self.numberHiddenLayers].units, None, self.tr_targets[i])
-                #hidden layers escluso input
-                for j in range(self.numberHiddenLayers, 0, -1): 
-                    self.layers[j].backpropagation(self.layers[j-1].units,self.layers[j+1].units,None)
+                    # Backpropagation
+                    ret = self.backpropagation(d_loss_avg, final_output, hidden_outputs)
+                    d_hiddens = ret[0]
+                    d_output = ret[1]
+                
+        
+                    #  Calcolo dei gradienti e aggiornamento dei pesi
+                    # per l'output layer 
+                    self.weights_output, self.velocity_weights[-1] = self.update_weights(self.weights_output, np.outer(hidden_outputs[-1], d_output), self.velocity_weights[-1])
+                    self.bias_output, self.velocity_biases[-1] = self.update_weights(self.bias_output, d_output, self.velocity_biases[-1])
+                    
 
+                    # per gli altri 
+                    for j in range(len(self.weights_hiddens)):
+    
+                        if j == 0:
+                            self.weights_hiddens[j],self.velocity_weights[j] = self.update_weights(self.weights_hiddens[j], np.outer(tr_data[i], d_hiddens[j]), self.velocity_weights[j])
+                        else:
+                            self.weights_hiddens[j], self.velocity_weights[j] = self.update_weights(self.weights_hiddens[j], np.outer(hidden_outputs[j-1], d_hiddens[j]), self.velocity_weights[j])
+                        # aggiornamento bias 
+                        self.bias_hiddens[j], self.velocity_biases[j] = self.update_weights(self.bias_hiddens[j], np.sum(d_hiddens[j], axis=0, keepdims=True), self.velocity_biases[j])
+                
+
+                # somma della loss per ogni esempio per poi farne la media dell'epoca
+                loss_sum += loss_value 
+
+            # salva la loss media per ogni epoca
+            loss_tot.append(loss_sum/len(tr_data)) 
+            # salva la lista degli output per ogni epoca in modo da poter calcolare l'accuracy
+            outputs_tot.append(output_epoch) 
             
-            # CALCOLO E STAMPA DELLA LOSS
-            if not self.isClassification: 
-                meanSquared = loss.mse(self.tr_targets,epochoutput)
-                print(meanSquared)
-                mseList.append(meanSquared)
-            
-            else: 
-                mseList.append(epochoutput) # non è mse in questo caso
+            # nel caso della regressione
+            if numberEpochs == sys.maxsize:
+                # ogni 10 epoche stampa la loss 
+                if len(outputs_tot)%20 == 0:
+                    print(loss_value)
+
+            # condizione di uscita
+            if loss_value < stop:
+                break
 
 
-        return mseList
+        # salva su file alla fine dell'addestramento 
+        self.save_to_file()
 
+        return (loss_tot, outputs_tot)
+
+
+
+#########################################################################################################
+
+    def run_test(self, test_data):
         
-
-
-    # qua tutti i parametri della rete esistono già 
-    def run_test(self, test_data, test_targets):
-        
-        print(len(test_data[0]))
-        print( self.numberInputUnits)
-        print(len(test_targets[0]))
-        print(self.numberOutputUnits)        
-
-        if (len(test_data[0]) != self.numberInputUnits) or (len(test_targets[0]) != self.numberOutputUnits):
-            print("NN:run_test: ERROR")
-            exit()
-        
-        # ESECUZIONE 
-        outputs = []
+        output = []
         for i in range(len(test_data)):
-            #inputLayer 
-            ret = self.layers[0].computeLayerOutput(test_data[i])
-            currentOutputs = ret[0]
-            precedentOutputs = currentOutputs # per chiamare il prossimo layer
-
-            # hidden layers e output layer (+1)
-            for j in range(self.numberHiddenLayers+1):
-                ret = self.layers[j+1].computeLayerOutput(precedentOutputs)
-                currentOutputs = ret[0]
-                precedentOutputs = currentOutputs # per chiamare il prossimo layer
-            
-            outputs.append(currentOutputs)
+            # Forward propagation
+            ret = self.forwardpropagation(test_data[i])
+            final_output = ret[1]
+            output.append(final_output)
         
-        return outputs
+        return output
+    
+#########################################################################################################
