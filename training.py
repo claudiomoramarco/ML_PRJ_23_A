@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt # visualizzazione
 import nn
 
 
-def classificationTraining(filename, numberEpochs, filenameToSave, layer_sizes, learning_rate, momentum, batch_size):
+# l2 è un booleano che è true se si vuole usare la regolarizzazione L2 
+def classificationTraining(filename, numberEpochs, filenameToSave, layer_sizes, learning_rate, momentum, batch_size, l2, regularization_coefficient):
     
     # lettura TR
     training_set = read_data.read_forClassification(filename)
@@ -18,7 +19,7 @@ def classificationTraining(filename, numberEpochs, filenameToSave, layer_sizes, 
     
 
     # creazione e addestramento rete
-    network_instance = nn.NN(layer_sizes, learning_rate, momentum, activation_functions.sigmoid , activation_functions.sigmoid, loss.binary_crossentropy , filenameToSave)
+    network_instance = nn.NN(layer_sizes, learning_rate, momentum, activation_functions.sigmoid , activation_functions.sigmoid, loss.binary_crossentropy , filenameToSave, l2, regularization_coefficient)
     ret = network_instance.run_training(inputs,targets,numberEpochs, -1, batch_size) # lo stop non serve in questo caso
     loss_values = ret[0]
     outputs = ret[1] # output finali dopo tutte le epoche 
@@ -61,7 +62,7 @@ def classificationTraining(filename, numberEpochs, filenameToSave, layer_sizes, 
 #########################################################################################################
 
 # stop è la soglia del valore della loss per fermarsi
-def regressionTraining(filename, numberEpochs, filenameToSave, layer_sizes, learning_rate, momentum, stop, batch_size):
+def regressionTraining(filename, numberEpochs, filenameToSave, layer_sizes, learning_rate, momentum, stop, batch_size, l2, regularization_coefficient):
 
     # lettura TR
     training_set = read_data.readForRegression(filename)
@@ -73,7 +74,7 @@ def regressionTraining(filename, numberEpochs, filenameToSave, layer_sizes, lear
     layer_sizes = np.insert(layer_sizes, len(layer_sizes), len(targets[0]))
 
     # creazione e addestramento rete
-    network_instance = nn.NN(layer_sizes, learning_rate, momentum, activation_functions.relu , activation_functions.linear, loss.mean_squared_error , filenameToSave)
+    network_instance = nn.NN(layer_sizes, learning_rate, momentum, activation_functions.sigmoid , activation_functions.linear, loss.mean_squared_error , filenameToSave, l2, regularization_coefficient)
     ret = network_instance.run_training(inputs, targets, numberEpochs, stop, batch_size)
     
     loss_values = ret[0]

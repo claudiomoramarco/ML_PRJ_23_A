@@ -6,7 +6,7 @@ import sys
 class NN:
 
     # layer sizes passato dall'esterno
-    def __init__(self, layer_sizes, learningRate, momentum, activationFunctionForHidden, activationFunctionForOutput, lossFunction, filenameToSave):
+    def __init__(self, layer_sizes, learningRate, momentum, activationFunctionForHidden, activationFunctionForOutput, lossFunction, filenameToSave, l2, regularization_coefficient):
         
         self.activationFunctionForHidden = activationFunctionForHidden
         self.activationFunctionForOutput = activationFunctionForOutput
@@ -15,6 +15,8 @@ class NN:
         self.filenameToSave = filenameToSave
         self.learningRate = learningRate
         self.momentum = momentum
+        self.l2 = l2
+        self.regularization_coefficient = regularization_coefficient
         self.initializeWeigths()
         self.initialize_velocity()
 
@@ -46,7 +48,11 @@ class NN:
     # con il momentum
     def update_weights(self, weights, gradients, velocities):
         velocities = self.momentum * velocities + (1 - self.momentum) * gradients
-        weights = weights - self.learningRate * velocities
+        # regolarizzazione L2
+        if self.l2:
+            weights = weights - self.learningRate * (velocities + self.regularization_coefficient * weights)
+        else: 
+            weights = weights - self.learningRate * velocities
         return (weights, velocities)
     
 #########################################################################################################
@@ -76,15 +82,19 @@ class NN:
     # final_output è l'output del pattern considerato
     # hidden_outputs[i] è l'output dell'hidden layer i-esimo del pattern considerato
     # d_loss la derivata della loss rispetto all'output del pattern considerato
-    def backpropagation(self, d_loss, final_output, hidden_outputs):
-        d_output = d_loss * final_output * (1 - final_output) # per l'output layer
+    def backpropagation(self, d_loss, final_output, hidden_outputs , len_data):
+        regul = self.regularization_coefficient/len_data
+        
+        # per l'output layer
+        d_output = d_loss * final_output * (1 - final_output) 
         d_hiddens = [np.zeros_like(hidden_output) for hidden_output in hidden_outputs]
-        for i in range(len(self.weights_hiddens) - 1, -1, -1): #per gli hidden
+        #per gli hidden
+        for i in range(len(self.weights_hiddens) - 1, -1, -1):
             if i == len(self.weights_hiddens)-1 : 
                 d_hiddens[i] = np.dot(d_output, np.transpose(self.weights_output)) * hidden_outputs[i] * (1 - hidden_outputs[i])
             else: 
                 d_hiddens[i] = np.dot(d_hiddens[i+1], np.transpose(self.weights_hiddens[i+1])) * hidden_outputs[i] * (1 - hidden_outputs[i])
-        
+
         return(d_hiddens,d_output) # con lo stesso criterio di forwardpropagation
     
 
@@ -107,6 +117,7 @@ class NN:
 
             for i in range(len(tr_data)):
 
+                # batch
                 if i%batch_size == 0: 
                     # dichiara vuota l'array delle derivate della loss del batch 
                     d_loss_batch = []
@@ -117,12 +128,12 @@ class NN:
                 final_output = ret[1] # output dell'output layer
                 output_epoch.append(final_output)
 
-                # Calcolo della Loss
+                # calcolo della loss 
                 loss_value = self.lossFunction(tr_targets[i], final_output) 
 
                 loss_sum = 0
 
-                # Calcolo della derivata della funzione di loss rispetto a y_pred
+                # Calcolo della derivata della funzione di loss rispetto a y_pred 
                 d_loss = loss.derivative(self.lossFunction)(tr_targets[i], final_output)
                 # salvo tra quelle del batch
                 d_loss_batch.append(d_loss)
@@ -133,7 +144,7 @@ class NN:
                     d_loss_avg = np.mean(d_loss_batch) 
 
                     # Backpropagation
-                    ret = self.backpropagation(d_loss_avg, final_output, hidden_outputs)
+                    ret = self.backpropagation(d_loss_avg, final_output, hidden_outputs, len(tr_data))
                     d_hiddens = ret[0]
                     d_output = ret[1]
                 
@@ -142,7 +153,7 @@ class NN:
                     # per l'output layer 
                     self.weights_output, self.velocity_weights[-1] = self.update_weights(self.weights_output, np.outer(hidden_outputs[-1], d_output), self.velocity_weights[-1])
                     self.bias_output, self.velocity_biases[-1] = self.update_weights(self.bias_output, d_output, self.velocity_biases[-1])
-                    
+
 
                     # per gli altri 
                     for j in range(len(self.weights_hiddens)):
@@ -153,7 +164,8 @@ class NN:
                             self.weights_hiddens[j], self.velocity_weights[j] = self.update_weights(self.weights_hiddens[j], np.outer(hidden_outputs[j-1], d_hiddens[j]), self.velocity_weights[j])
                         # aggiornamento bias 
                         self.bias_hiddens[j], self.velocity_biases[j] = self.update_weights(self.bias_hiddens[j], np.sum(d_hiddens[j], axis=0, keepdims=True), self.velocity_biases[j])
-                
+
+
 
                 # somma della loss per ogni esempio per poi farne la media dell'epoca
                 loss_sum += loss_value 

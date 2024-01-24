@@ -26,7 +26,7 @@ def readForRegression(filename):
         righe_selezionate = righe_selezionate.astype(float)
         mean_values = np.mean(righe_selezionate, axis=0) # media
         std_dev_values = np.std(righe_selezionate, axis=0) # deviazione standard
-        righe_selezionate = normalize_data(righe_selezionate, std_dev_values, mean_values)
+        # righe_selezionate = normalize_data(righe_selezionate, std_dev_values, mean_values)
 
         # divisione dei dati in input , output e il primo valore ignorato
         for riga in righe_selezionate:
@@ -64,9 +64,9 @@ def read_forClassification(filename):
 
 #########################################################################################################
 
-def normalize_data(data_set, std_dev_values, mean_values ):
-    normalized_data = (data_set - mean_values) / std_dev_values
-    return normalized_data
+# def normalize_data(data_set, std_dev_values, mean_values ):
+#     normalized_data = ((data_set - mean_values) / std_dev_values)
+#     return normalized_data
 
 
 #########################################################################################################

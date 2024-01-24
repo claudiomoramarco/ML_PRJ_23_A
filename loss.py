@@ -8,6 +8,7 @@ def mean_squared_error(y_true, y_pred):
 def mean_squared_error_derivative(y_true, y_pred):
     return 2 * np.mean(y_pred - y_true)
 
+
 #########################################################################################################
 # tr_targets e outputs sono due liste di booleani
 def percentClassification(tr_targets, outputs):
@@ -29,7 +30,6 @@ def binary_crossentropy(y_true, y_pred):
     # Calcola la Binary Crossentropy per un singolo esempio
     return - (y_true * np.log(y_pred) + (1 - y_true) * np.log(1 - y_pred))
 
-#########################################################################################################
 
 def binary_crossentropy_derivative(y_true, y_pred):
     # Calcola la derivata della Binary Crossentropy rispetto a y_pred

@@ -15,23 +15,6 @@ def linear1(x):
 
 #########################################################################################################
 
-# def relu(input):
-#     input = np.ravel(input)
-#     toRet = []
-#     for x in input:
-#         toRet.append(np.maximum(0,x))
-#     return toRet
-
-# def relu1(input):
-#     input = np.ravel(input)
-#     toRet = []
-#     for x in input:
-#         if x <= 0:
-#             toRet.append(0)
-#         else:
-#             toRet.append(1)
-#     return toRet
-
 def relu(x):
     return np.maximum(0, x)
 
