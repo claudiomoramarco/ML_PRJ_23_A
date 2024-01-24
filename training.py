@@ -19,7 +19,7 @@ def classificationTraining(filename, numberEpochs, filenameToSave, layer_sizes, 
 
     # creazione e addestramento rete
     network_instance = nn.NN(layer_sizes, learning_rate, momentum, activation_functions.sigmoid , activation_functions.sigmoid, loss.binary_crossentropy , filenameToSave)
-    ret = network_instance.run_training(inputs,targets,numberEpochs, -1) # lo stop non serve in questo caso
+    ret = network_instance.run_training(inputs,targets,numberEpochs, -1, batch_size) # lo stop non serve in questo caso
     loss_values = ret[0]
     outputs = ret[1] # output finali dopo tutte le epoche 
 

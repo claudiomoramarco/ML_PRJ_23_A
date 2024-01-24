@@ -5,6 +5,11 @@ import testing
 
 # python3 main.py <isTraining> <isClassification> <epochsNumber> <filename> <filenameToSave>
 # filenameToSave è il nome del file su cui salvare la rete dopo l'addestramento o da cui leggere i valori della rete in caso di test  
+# isTraining è 'TR' per addestramento e 'TS' per test 
+# isClassification è '1' per classificazione e '0' per regressione
+# epochsNumber è il numero di epoche
+# filename è il nome del file da cui leggere i pattern per addestrare la rete
+# filenameToSave è il nome del file su cui salvare la rete ( i pesi )
 
 if len(sys.argv) < 6:
     print("Necessari argomenti")
