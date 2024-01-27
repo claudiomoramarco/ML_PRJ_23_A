@@ -74,7 +74,7 @@ def regressionTraining(filename, numberEpochs, filenameToSave, layer_sizes, lear
     layer_sizes = np.insert(layer_sizes, len(layer_sizes), len(targets[0]))
 
     # creazione e addestramento rete
-    network_instance = nn.NN(layer_sizes, learning_rate, momentum, activation_functions.sigmoid , activation_functions.linear, loss.mean_squared_error , filenameToSave, l2, regularization_coefficient)
+    network_instance = nn.NN(layer_sizes, learning_rate, momentum, activation_functions.relu , activation_functions.linear, loss.mean_squared_error , filenameToSave, l2, regularization_coefficient)
     ret = network_instance.run_training(inputs, targets, numberEpochs, stop, batch_size)
     
     loss_values = ret[0]
@@ -82,8 +82,8 @@ def regressionTraining(filename, numberEpochs, filenameToSave, layer_sizes, lear
 
 
     print("ultimo valore:")
-    print(outputs[-1][-1][-1])    
-    print(targets[-1][-1])
+    print(outputs[-1])    
+    print(targets)
 
     # Lista del numero di epoche
     epochs = list(range(1, len(loss_values) + 1))

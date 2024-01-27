@@ -2,6 +2,7 @@ import loss
 import numpy as np
 import pickle # per salvare la rete
 import sys
+import activation_functions
 
 class NN:
 
@@ -22,6 +23,17 @@ class NN:
 
 #########################################################################################################
         
+    # input 
+    # 10 x 8
+    # h1
+    # 8 x 7 
+    # h2
+    # 7 x 8
+    # h3
+    # 8 x 3
+    # out
+
+    
     # Inizializza pesi e bias in modo casuale
     def initializeWeigths(self):
         np.random.seed(42)
@@ -30,29 +42,35 @@ class NN:
 
         # per gli hidden  
         for i in range(len(self.layer_sizes)-2):
-            self.weights_hiddens.append(np.random.normal(0, 0.1,  (self.layer_sizes[i] , self.layer_sizes[i+1])))             
-            self.bias_hiddens.append(np.zeros((1, self.layer_sizes[i+1])))
+            self.weights_hiddens.append(np.random.uniform(-0.1, 0.1,(self.layer_sizes[i] , self.layer_sizes[i+1]) ))
+            self.bias_hiddens.append(np.full(self.layer_sizes[i+1], 0))
 
         # per l'output layer 
-        self.weights_output = np.random.normal(0, 0.1, (self.layer_sizes[-2], self.layer_sizes[-1]))
-        self.bias_output = np.zeros((1, self.layer_sizes[-1]))
-
-
+        self.weights_output = np.random.uniform(-0.1, 0.1,(self.layer_sizes[-2], self.layer_sizes[-1]) )
+        self.bias_output = np.full(self.layer_sizes[-1], 0)
+   
 #########################################################################################################
     
     def initialize_velocity(self):
-        self.velocity_weights = [np.zeros((prev, curr)) for prev, curr in zip(self.layer_sizes[:-1], self.layer_sizes[1:])]
-        self.velocity_biases = [np.zeros((1, curr)) for curr in self.layer_sizes[1:]]
+        self.velocity_weights = []
+        self.velocity_biases = []
+        for i in range(len(self.weights_hiddens)):
+            self.velocity_weights.append(np.zeros_like(self.weights_hiddens[i]))
+            self.velocity_biases.append(self.bias_hiddens[i])
+        self.velocity_weights.append(np.zeros_like(self.weights_output))
+        self.velocity_biases.append(self.bias_output)
 
 #########################################################################################################
-    # con il momentum
     def update_weights(self, weights, gradients, velocities):
+        
         velocities = self.momentum * velocities + (1 - self.momentum) * gradients
+    
         # regolarizzazione L2
         if self.l2:
             weights = weights - self.learningRate * (velocities + self.regularization_coefficient * weights)
         else: 
             weights = weights - self.learningRate * velocities
+
         return (weights, velocities)
     
 #########################################################################################################
@@ -67,6 +85,7 @@ class NN:
     def forwardpropagation(self, data):
 
         hidden_outputs = []
+      
         for i in range(len(self.weights_hiddens)): # per gli hidden
             if i == 0:
                 hidden_outputs.append(np.ravel(self.activationFunctionForHidden(np.dot(data, self.weights_hiddens[i]) + self.bias_hiddens[i])))
@@ -74,28 +93,54 @@ class NN:
                 hidden_outputs.append(np.ravel(self.activationFunctionForHidden(np.dot(hidden_outputs[i-1], self.weights_hiddens[i]) + self.bias_hiddens[i])))
         
         final_output = np.ravel(self.activationFunctionForOutput(np.dot(hidden_outputs[-1], self.weights_output) + self.bias_output))
-
-        return (hidden_outputs,final_output) # final_output è l'output dell'output layer , hidden_outputs è l'array degli output di ogni hidden layer
+        # final_output è l'output dell'output layer , hidden_outputs è l'array degli output di ogni hidden layer
+        return (hidden_outputs,final_output) 
+    
 
 #########################################################################################################
     
     # final_output è l'output del pattern considerato
     # hidden_outputs[i] è l'output dell'hidden layer i-esimo del pattern considerato
-    # d_loss la derivata della loss rispetto all'output del pattern considerato
-    def backpropagation(self, d_loss, final_output, hidden_outputs , len_data):
-        regul = self.regularization_coefficient/len_data
+    def backpropagation(self, d_loss, final_output, hidden_outputs , data, target):
         
-        # per l'output layer
-        d_output = d_loss * final_output * (1 - final_output) 
-        d_hiddens = [np.zeros_like(hidden_output) for hidden_output in hidden_outputs]
-        #per gli hidden
-        for i in range(len(self.weights_hiddens) - 1, -1, -1):
-            if i == len(self.weights_hiddens)-1 : 
-                d_hiddens[i] = np.dot(d_output, np.transpose(self.weights_output)) * hidden_outputs[i] * (1 - hidden_outputs[i])
-            else: 
-                d_hiddens[i] = np.dot(d_hiddens[i+1], np.transpose(self.weights_hiddens[i+1])) * hidden_outputs[i] * (1 - hidden_outputs[i])
+        # gradiente output layer 
+        delta_out = (activation_functions.derivative(self.activationFunctionForOutput)(np.dot(hidden_outputs[-1], self.weights_output))) * d_loss
+        grad_out_weigths = np.outer(hidden_outputs[-1], delta_out) 
+        grad_out_bias = delta_out
 
-        return(d_hiddens,d_output) # con lo stesso criterio di forwardpropagation
+        # gradiente hidden layers
+        grad_hid_weigths = [] 
+        delta_hiddens = []
+        grad_hid_bias = []
+
+        if len(self.weights_hiddens) == 1: # se c'è un solo hidden layer 
+            delta_hiddens.append(np.dot(delta_out, np.transpose(self.weights_output)) * 
+                                     activation_functions.derivative(self.activationFunctionForHidden)(np.dot(data,self.weights_hiddens[0])))
+            grad_hid_weigths.append(np.outer(data, delta_hiddens[-1]))
+            grad_hid_bias.append(delta_hiddens[-1])
+
+        else:
+            for i in range(len(self.weights_hiddens)-1, -1, -1):
+                if i == len(self.weights_hiddens)-1 :
+                    delta_hiddens.append(np.dot(delta_out, np.transpose(self.weights_output)) * 
+                                        activation_functions.derivative(self.activationFunctionForHidden)(np.dot(hidden_outputs[i-1],self.weights_hiddens[i])))
+                    grad_hid_weigths.append(np.outer(hidden_outputs[i-1], delta_hiddens[-1]))
+                elif i == 0:
+                    delta_hiddens.append(np.dot(delta_hiddens[-1], np.transpose(self.weights_hiddens[i+1])) * 
+                                        activation_functions.derivative(self.activationFunctionForHidden)(np.dot(data,self.weights_hiddens[i])))
+                    grad_hid_weigths.append(np.outer(data, delta_hiddens[-1]))
+                else:
+            
+                    delta_hiddens.append(np.dot(delta_hiddens[-1], np.transpose(self.weights_hiddens[i+1]))*
+                                        activation_functions.derivative(self.activationFunctionForHidden)(np.dot(hidden_outputs[i-1],self.weights_hiddens[i])))
+                    grad_hid_weigths.append(np.outer(hidden_outputs[i-1], delta_hiddens[-1]))
+
+                grad_hid_bias.append(delta_hiddens[-1])
+        
+        # inverto l'ordine delle matrici perché sono stati riempiti al contrario
+        grad_hid_weigths = grad_hid_weigths[::-1]      
+        grad_hid_bias = grad_hid_bias[::-1]
+        return(grad_hid_weigths,grad_out_weigths, grad_hid_bias, grad_out_bias) # con lo stesso criterio di forwardpropagation
     
 
 #########################################################################################################
@@ -104,19 +149,14 @@ class NN:
         
         loss_tot = []
         outputs_tot = []
-    
-        if stop > 0:
-            numberEpochs = sys.maxsize
-        else: 
-            stop = -sys.maxsize
 
         # Addestramento del modello
         for epoch in range(numberEpochs):
-            
+
             output_epoch = []
 
             for i in range(len(tr_data)):
-
+                
                 # batch
                 if i%batch_size == 0: 
                     # dichiara vuota l'array delle derivate della loss del batch 
@@ -126,6 +166,7 @@ class NN:
                 ret = self.forwardpropagation(tr_data[i])
                 hidden_outputs = ret[0] # array degli output per ogni hidden  layer 
                 final_output = ret[1] # output dell'output layer
+               
                 output_epoch.append(final_output)
 
                 # calcolo della loss 
@@ -135,55 +176,50 @@ class NN:
 
                 # Calcolo della derivata della funzione di loss rispetto a y_pred 
                 d_loss = loss.derivative(self.lossFunction)(tr_targets[i], final_output)
+  
                 # salvo tra quelle del batch
                 d_loss_batch.append(d_loss)
                 
                 # ogni batch_size patterns oppure se è l'ultimo pattern 
                 if i%batch_size == batch_size-1 or i == len(tr_data)-1:
+                    
+
                     # media delle derivate nel batch 
-                    d_loss_avg = np.mean(d_loss_batch) 
+                    d_loss_avg = np.mean(d_loss_batch, axis=0)
 
                     # Backpropagation
-                    ret = self.backpropagation(d_loss_avg, final_output, hidden_outputs, len(tr_data))
-                    d_hiddens = ret[0]
-                    d_output = ret[1]
-                
-        
-                    #  Calcolo dei gradienti e aggiornamento dei pesi
-                    # per l'output layer 
-                    self.weights_output, self.velocity_weights[-1] = self.update_weights(self.weights_output, np.outer(hidden_outputs[-1], d_output), self.velocity_weights[-1])
-                    self.bias_output, self.velocity_biases[-1] = self.update_weights(self.bias_output, d_output, self.velocity_biases[-1])
-
-
-                    # per gli altri 
+                    ret = self.backpropagation(d_loss_avg, final_output, hidden_outputs, tr_data[i], tr_targets[i])
+                    
+                    grad_hiddens = ret[0]
+                    grad_output = ret[1]
+                    grad_hid_bias = ret[2]
+                    grad_out_bias = ret[3]
+                    
+                    # aggiornamento dei pesi 
+                 
+                    # per gli hidden layers  
                     for j in range(len(self.weights_hiddens)):
-    
-                        if j == 0:
-                            self.weights_hiddens[j],self.velocity_weights[j] = self.update_weights(self.weights_hiddens[j], np.outer(tr_data[i], d_hiddens[j]), self.velocity_weights[j])
-                        else:
-                            self.weights_hiddens[j], self.velocity_weights[j] = self.update_weights(self.weights_hiddens[j], np.outer(hidden_outputs[j-1], d_hiddens[j]), self.velocity_weights[j])
+                    
+                        self.weights_hiddens[j], self.velocity_weights[j] = self.update_weights(self.weights_hiddens[j], grad_hiddens[j], self.velocity_weights[j])
                         # aggiornamento bias 
-                        self.bias_hiddens[j], self.velocity_biases[j] = self.update_weights(self.bias_hiddens[j], np.sum(d_hiddens[j], axis=0, keepdims=True), self.velocity_biases[j])
-
-
-
+                        self.bias_hiddens[j], self.velocity_biases[j] = self.update_weights(self.bias_hiddens[j], grad_hid_bias[j], self.velocity_biases[j])
+                    
+                    # per l'output layer
+                    self.weights_output, self.velocity_weights[-1] = self.update_weights(self.weights_output, grad_output, self.velocity_weights[-1])
+                    self.bias_output, self.velocity_biases[-1] = self.update_weights(self.bias_output, grad_out_bias, self.velocity_biases[-1])
+                
                 # somma della loss per ogni esempio per poi farne la media dell'epoca
                 loss_sum += loss_value 
 
             # salva la loss media per ogni epoca
-            loss_tot.append(loss_sum/len(tr_data)) 
+            loss_tot.append(loss_sum/len(tr_data))
+
             # salva la lista degli output per ogni epoca in modo da poter calcolare l'accuracy
             outputs_tot.append(output_epoch) 
-            
-            # nel caso della regressione
-            if numberEpochs == sys.maxsize:
-                # ogni 10 epoche stampa la loss 
-                if len(outputs_tot)%20 == 0:
-                    print(loss_value)
-
-            # condizione di uscita
-            if loss_value < stop:
-                break
+      
+            # ogni 20 epoche stampa la loss 
+            if len(outputs_tot)%20 == 0:
+                print(loss_tot[-1])
 
 
         # salva su file alla fine dell'addestramento 

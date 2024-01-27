@@ -11,7 +11,7 @@ def linear(x):
     return x
 
 def linear1(x):
-    return 1
+    return np.ones_like(x)
 
 #########################################################################################################
 
@@ -25,7 +25,6 @@ def relu_derivative(x):
 
 def sigmoid(x):
     return 1 / (1 + np.exp(-x))
-
 
 def sigmoid_derivative(input):
     return sigmoid(input) * (1-sigmoid(input))
