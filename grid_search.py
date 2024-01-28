@@ -1,5 +1,7 @@
 import random
 import itertools
+from decimal import Decimal, getcontext
+
 
 def genera_layers():
     start = 20
@@ -55,10 +57,37 @@ def genera_layers():
 
 
 def genera_float():
+    # cifre_decimali = random.choices([1, 2, 3, 4], weights=[10, 70, 70, 15])[0]
+    # valore = round(random.uniform(0.00001, 0.65), cifre_decimali)
+    # return valore
     cifre_decimali = random.choices([1, 2, 3, 4], weights=[10, 70, 70, 15])[0]
-    valore = round(random.uniform(0.00001, 0.65), cifre_decimali)
+    # Salva la precisione corrente del contesto
+    current_precision = getcontext().prec
+    # Imposta la precisione per gestire il numero di cifre decimali
+    getcontext().prec = cifre_decimali + 1  # +1 per garantire che la precisione copra le cifre decimali richieste
+    # Genera un numero casuale tra min_value e max_value con il numero specificato di cifre decimali
+    min_value = Decimal('0.00001')
+    max_value = Decimal('0.9')
+    valore = min_value + (max_value - min_value) * Decimal(random.random())
+    # Ripristina la precisione originale del contesto
+    getcontext().prec = current_precision
     return valore
 
+
+def genera_lr():
+    # Genera un numero casuale con 3 o 4 decimali
+    cifre_decimali = random.choice([3, 4])
+    numero = round(random.uniform(0.0001, 0.9999), cifre_decimali)
+
+    # Formatta il numero in modo che inizi con "0.00"
+    numero_formattato = f"0.00{numero:.{cifre_decimali}f}"
+    return numero_formattato
+
+def genera_momentum():
+    # Genera un numero casuale con 2 o 3 decimali
+    cifre_decimali = random.choice([2, 3])
+    numero = round(random.uniform(0.001, 0.9), cifre_decimali)
+    return numero
 
 layers = []
 learning_rate = []
@@ -69,9 +98,9 @@ batch_size = [2, 5, 10]
 
 for i in range(10):
     layers.append(genera_layers())
-    learning_rate.append(genera_float())
-    momentum.append(genera_float())
-    reg_coefficient.append(genera_float())
+    learning_rate.append(genera_lr())
+    momentum.append(genera_momentum())
+    reg_coefficient.append(genera_lr())
 
 # Genera tutte le combinazioni
 tutte_combinazioni = list(itertools.product(layers, learning_rate, momentum, l2_values, reg_coefficient, batch_size))
@@ -86,8 +115,8 @@ with open('combination_output.txt', 'w') as file:
 with open('combination_output.txt', 'r') as file:
     lines = file.readlines()
 
-# Calcola il numero di righe da mantenere (30% delle righe originali)
-lines_to_keep = int(len(lines) * 0.1)
+# Calcola il numero di righe da mantenere 
+lines_to_keep = int(len(lines) * 0.02)
 
 # Seleziona casualmente le righe da mantenere
 random_lines = random.sample(lines, lines_to_keep)
