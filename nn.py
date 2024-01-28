@@ -23,16 +23,6 @@ class NN:
 
 #########################################################################################################
         
-    # input 
-    # 10 x 8
-    # h1
-    # 8 x 7 
-    # h2
-    # 7 x 8
-    # h3
-    # 8 x 3
-    # out
-
     
     # Inizializza pesi e bias in modo casuale
     def initializeWeigths(self):
@@ -217,9 +207,9 @@ class NN:
             # salva la lista degli output per ogni epoca in modo da poter calcolare l'accuracy
             outputs_tot.append(output_epoch) 
       
-            # ogni 20 epoche stampa la loss 
-            if len(outputs_tot)%20 == 0:
-                print(loss_tot[-1])
+            # # ogni 20 epoche stampa la loss 
+            # if len(outputs_tot)%20 == 0:
+            #     print(loss_tot[-1])
 
 
         # salva su file alla fine dell'addestramento 

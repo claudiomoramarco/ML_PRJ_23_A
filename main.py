@@ -38,7 +38,7 @@ else:
             layer_sizes = [5 , 1]
             # learning rate 
             learning_rate = 0.04
-            momentum = 0.4
+            momentum = 0.3
             l2 = False # regolarizzazione L2 per il monks-3
             regularization_coefficient = 0.02
             batch_size = 1 # per i monk la metto a 1
