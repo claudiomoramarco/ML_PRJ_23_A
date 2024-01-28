@@ -206,10 +206,11 @@ class NN:
 
             # salva la lista degli output per ogni epoca in modo da poter calcolare l'accuracy
             outputs_tot.append(output_epoch) 
-      
-            # # ogni 20 epoche stampa la loss 
-            # if len(outputs_tot)%20 == 0:
-            #     print(loss_tot[-1])
+
+            # ogni 20 epoche stampa la loss 
+            if stop == 0: # ovvero è stato chiamato da main.py
+                if len(outputs_tot)%20 == 0:
+                    print(loss_tot[-1])
 
 
         # salva su file alla fine dell'addestramento 

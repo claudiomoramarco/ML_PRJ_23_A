@@ -37,20 +37,19 @@ else:
             # layer_sizes => dimensioni degli hidden layers, seguite dalle dimensioni dell'output layer
             layer_sizes = [5 , 1]
             # learning rate 
-            learning_rate = 0.04
+            learning_rate = 0.03
             momentum = 0.3
             l2 = False # regolarizzazione L2 per il monks-3
             regularization_coefficient = 0.02
             batch_size = 1 # per i monk la metto a 1
             training.classificationTraining(filename, numberEpochs, filenameToSave,layer_sizes, learning_rate, momentum, batch_size, l2, regularization_coefficient)
 
-
         # regressione
         else:
             hidden_layer_sizes = [100,100,100] # dimensioni degli hidden layers
             learning_rate = 0.0001
             momentum = 0.65
-            stop = 0.0081 #0 l'addestramento si ferma quando la loss media dell'epoca è inferiore a questa soglia
+            stop = 0 #0 l'addestramento si ferma quando la loss media dell'epoca è inferiore a questa soglia
             batch_size = 5 
             l2 = True
             regularization_coefficient = 0.001

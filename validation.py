@@ -6,7 +6,7 @@ import activation_functions
 import loss
 
 
-# <data_filename> <parameters_filename> <isRegression> <k>>
+# <validation.py> <data_filename> <parameters_filename> <isRegression> <k>
 
 def kFoldCrossValidation(k, isRegression, data_filename, parameters_filename):  #filenameToSave, layer_sizes, learning_rate, momentum, batch_size, l2, regularization_coefficient):
 
@@ -47,9 +47,9 @@ def kFoldCrossValidation(k, isRegression, data_filename, parameters_filename):  
           
         loss_avg_config = 0
 
-        for j in range(k): # addestramento per ogni fold
+        # addestramento per ogni fold
+        for j in range(k):
 
-            print("Fold :", j)
             dataTR = None  
             targetsTR = None
             # creazione TR
@@ -63,6 +63,7 @@ def kFoldCrossValidation(k, isRegression, data_filename, parameters_filename):  
                         targetsTR = np.vstack((targetsTR, target_folds[l]))
             if not isRegression:
                 targetsTR = np.ravel(targetsTR)
+            
             # addestramento
             network_instance.run_training(dataTR, targetsTR, 20 , -1, configs[i]['batch_size'])
             # test su input_folds[j]
@@ -72,9 +73,12 @@ def kFoldCrossValidation(k, isRegression, data_filename, parameters_filename):  
         # loss media dei fold
         computedLossConfigurations.append(loss_avg_config/k)
         print("Loss media: " , computedLossConfigurations[-1])
-        
+    
+
     # cerco la miglior configurazione   
     min = np.argmin(computedLossConfigurations)
+    # stampa i risultati su file 
+    write_results(configs, computedLossConfigurations)
 
     print("La configurazione migliore e' ", min, " con un valore di loss di ", computedLossConfigurations[min])
 
@@ -127,7 +131,6 @@ def readParameters(filename):
             l2 = bool(int(parametri[3]))  # Converto il valore a booleano
             regularization_coefficient = float(parametri[4])
             batch_size = int(parametri[5])
-
             # Aggiungi i parametri alla lista
             configurazioni.append({
                 'hidden_layer_sizes': hidden_layer_sizes,
@@ -142,6 +145,13 @@ def readParameters(filename):
         
 #########################################################################################################
 
+def write_results(configs, computedLossConfigurations):
+    with open('avg_loss_validation.txt', 'w') as file:
+        for indice, (config, loss) in enumerate(zip(configs, computedLossConfigurations)):
+            line = f"{indice}: {config} : Loss {loss}\n"
+            file.write(line)
+            
+#########################################################################################################
 
 data_filename = sys.argv[1]
 parameters_filename = sys.argv[2]
