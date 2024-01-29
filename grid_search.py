@@ -75,13 +75,11 @@ def genera_float():
 
 
 def genera_lr():
-    # Genera un numero casuale con 3 o 4 decimali
     cifre_decimali = random.choice([3, 4])
-    numero = round(random.uniform(0.0001, 0.9999), cifre_decimali)
-
-    # Formatta il numero in modo che inizi con "0.00"
-    numero_formattato = f"0.00{numero:.{cifre_decimali}f}"
+    numero = round(random.uniform(0.0001, 0.001), cifre_decimali)
+    numero_formattato = f"{numero:.{cifre_decimali}f}"
     return numero_formattato
+
 
 def genera_momentum():
     # Genera un numero casuale con 2 o 3 decimali
