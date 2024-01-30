@@ -38,6 +38,8 @@ def readForRegression(filename):
 #########################################################################################################
 
 # legge i monk 
+
+
 def read_forClassification(filename):
     targets = []
     inputs = []

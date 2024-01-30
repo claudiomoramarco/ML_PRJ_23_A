@@ -139,8 +139,8 @@ class NN:
         
         loss_tot_TR = []
         outputs_tot_TR = []
-        loss_tot_TS = []
-        outputs_tot_TS = []
+        # loss_tot_TS = []
+        # outputs_tot_TS = []
 
         # Addestramento del modello
         for epoch in range(numberEpochs):
@@ -214,7 +214,7 @@ class NN:
 
             # salva la loss media per ogni epoca
             loss_tot_TR.append(loss_sum_TR/len(tr_data))
-            loss_tot_TS.append(loss_sum_TS/len(test_data))
+            # loss_tot_TS.append(loss_sum_TS/len(test_data))
 
             # salva la lista degli output per ogni epoca in modo da poter calcolare l'accuracy
             outputs_tot_TR.append(output_epoch_TR) 
@@ -228,7 +228,7 @@ class NN:
         # salva su file alla fine dell'addestramento 
         self.save_to_file()
 
-        return (loss_tot_TR, outputs_tot_TR, loss_tot_TS)
+        return (loss_tot_TR, outputs_tot_TR)
 
 
 
