@@ -57,9 +57,6 @@ def genera_layers():
 
 
 def genera_float():
-    # cifre_decimali = random.choices([1, 2, 3, 4], weights=[10, 70, 70, 15])[0]
-    # valore = round(random.uniform(0.00001, 0.65), cifre_decimali)
-    # return valore
     cifre_decimali = random.choices([1, 2, 3, 4], weights=[10, 70, 70, 15])[0]
     # Salva la precisione corrente del contesto
     current_precision = getcontext().prec

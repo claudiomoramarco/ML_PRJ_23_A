@@ -135,35 +135,34 @@ class NN:
 
 #########################################################################################################
     
-    def run_training(self, tr_data, tr_targets, numberEpochs, stop, batch_size):
+    def run_training(self, tr_data, tr_targets, numberEpochs, stop, batch_size, test_data, test_targets):
         
-        loss_tot = []
-        outputs_tot = []
+        loss_tot_TR = []
+        outputs_tot_TR = []
+        loss_tot_TS = []
+        outputs_tot_TS = []
 
         # Addestramento del modello
         for epoch in range(numberEpochs):
 
-            output_epoch = []
+            output_epoch_TR = []
+            output_epoch_TS = []
+            # somma delle loss dell'epoca
+            loss_sum_TR = 0  
+            # training set
+            for i in range(len(tr_data)): 
 
-            for i in range(len(tr_data)):
-                
                 # batch
                 if i%batch_size == 0: 
                     # dichiara vuota l'array delle derivate della loss del batch 
                     d_loss_batch = []
-                
                 # Forward propagation
                 ret = self.forwardpropagation(tr_data[i])
                 hidden_outputs = ret[0] # array degli output per ogni hidden  layer 
                 final_output = ret[1] # output dell'output layer
-               
-                output_epoch.append(final_output)
-
-                # calcolo della loss 
-                loss_value = self.lossFunction(tr_targets[i], final_output) 
-
-                loss_sum = 0
-
+                output_epoch_TR.append(final_output)
+                # calcolo della loss dell'esempio corrente
+                loss_value = self.lossFunction(tr_targets[i], final_output)                 
                 # Calcolo della derivata della funzione di loss rispetto a y_pred 
                 d_loss = loss.derivative(self.lossFunction)(tr_targets[i], final_output)
   
@@ -199,24 +198,37 @@ class NN:
                     self.bias_output, self.velocity_biases[-1] = self.update_weights(self.bias_output, grad_out_bias, self.velocity_biases[-1])
                 
                 # somma della loss per ogni esempio per poi farne la media dell'epoca
-                loss_sum += loss_value 
+                loss_sum_TR += loss_value 
+
+            # test set 
+            loss_sum_TS = 0 # somma della loss di ogni esempio dell'epoca corrente 
+            for i in range(len(test_data)):
+                # Forward propagation
+                ret = self.forwardpropagation(test_data[i])
+                final_output = ret[1]
+                output_epoch_TS.append(final_output)
+                # calcolo della loss 
+                loss_value = self.lossFunction(test_targets[i], final_output)
+                loss_sum_TS += loss_value
+
 
             # salva la loss media per ogni epoca
-            loss_tot.append(loss_sum/len(tr_data))
+            loss_tot_TR.append(loss_sum_TR/len(tr_data))
+            loss_tot_TS.append(loss_sum_TS/len(test_data))
 
             # salva la lista degli output per ogni epoca in modo da poter calcolare l'accuracy
-            outputs_tot.append(output_epoch) 
+            outputs_tot_TR.append(output_epoch_TR) 
 
             # ogni 20 epoche stampa la loss 
             if stop == 0: # ovvero è stato chiamato da main.py
-                if len(outputs_tot)%20 == 0:
-                    print(loss_tot[-1])
+                if len(outputs_tot_TR)%20 == 0:
+                    print(loss_tot_TR[-1])
 
 
         # salva su file alla fine dell'addestramento 
         self.save_to_file()
 
-        return (loss_tot, outputs_tot)
+        return (loss_tot_TR, outputs_tot_TR, loss_tot_TS)
 
 
 

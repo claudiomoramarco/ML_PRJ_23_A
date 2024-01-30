@@ -80,12 +80,6 @@ def binary_crossentropy_derivative(y_true, y_pred):
 
 #########################################################################################################
 
-def update_weights(weights, gradients, learning_rate):
-    # Aggiorna i pesi usando la discesa del gradiente
-    return weights - learning_rate * gradients
-
-#########################################################################################################
-
 def derivative(function):
     if function == binary_crossentropy:
         return binary_crossentropy_derivative
