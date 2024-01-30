@@ -1,0 +1,499 @@
+0: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 252.46813223304554
+1: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.4697750995279533
+2: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+3: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0007, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss nan
+4: {'hidden_layer_sizes': array([150]), 'learning_rate': 0.0005, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.6192364362430336
+5: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.7963669289390776
+6: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 10} : Loss nan
+7: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+8: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 118.50868872721021
+9: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0009, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 548.2005587137281
+10: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.6350852707828922
+11: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 38.73373281587075
+12: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 175.001719078368
+13: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 11.999863927160987
+14: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 10} : Loss nan
+15: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 90.31482465710744
+16: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.877481431512269
+17: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+18: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 578.4171632514086
+19: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.938651878420232
+20: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+21: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 71.73852457054204
+22: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 6.556888123981297
+23: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 10} : Loss nan
+24: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+25: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0004, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.6103273031196452
+26: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 5.124913497132887
+27: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0004, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 147.69233714872854
+28: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0007, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 505.4985905139558
+29: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+30: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0007, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 24.75538872979571
+31: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 4.5249356575161945
+32: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 2} : Loss 2.6422789603463452
+33: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 3.785807497379242
+34: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0004, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 4.433414670267508
+35: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0004, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 2} : Loss 5.691583310750765
+36: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 3.500220230998287
+37: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 8.361487855571776
+38: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0004, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 4.926405996207561
+39: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 2.6698722017138876
+40: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0007, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+41: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.328588464999381
+42: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 10} : Loss 469.88843666868087
+43: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 13.550136085332941
+44: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 551.300436383151
+45: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0004, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+46: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0009, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 548.131049424672
+47: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.56731304241663
+48: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 3.1422208284902693
+49: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 10} : Loss nan
+50: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 12.333257931335655
+51: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 7065568992539.683
+52: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.292759763182378
+53: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 90.62673257100354
+54: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.8615499102351696
+55: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 11.559140599526796
+56: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 110.5338858852468
+57: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 11.751774130528807
+58: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0007, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 12.030232205326595
+59: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.573838000975207
+60: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.001, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 2} : Loss 563.6663067329489
+61: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0004, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 5.47828843915212
+62: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss nan
+63: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 2.9610767387951906
+64: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0003, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.4828471422565186
+65: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0009, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 548.2005587137281
+66: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0007, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 41.8545025232273
+67: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 141.5121572608958
+68: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+69: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.6422789603463452
+70: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0007, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 60.43553254644346
+71: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.4752473470581764
+72: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0004, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 11.935858435315259
+73: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 11.892731810921898
+74: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0007, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+75: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0009, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+76: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 771.5285838460525
+77: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+78: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+79: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 67.33471329530202
+80: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0007, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 67.65792671674339
+81: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0007, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 22.332944025965816
+82: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 177.44026186904685
+83: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.6172825542143103
+84: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 12.67365674943493
+85: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 11.84805792314495
+86: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.7338306734562265
+87: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 13.30594663127024
+88: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 3.323027074777176
+89: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 12.098970577018088
+90: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 58.802858740167416
+91: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+92: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.6670283764805935
+93: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+94: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 181.7488843134185
+95: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0004, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 5.00501911953039
+96: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0004, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 4.2474860233779514
+97: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss nan
+98: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0009, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss nan
+99: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 9.39438112652199
+100: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss nan
+101: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 275.2214355002685
+102: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 13.135851874698144
+103: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0007, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 11.661869683412911
+104: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 64.24451753732923
+105: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0003, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.862637760348522
+106: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+107: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0003, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.657363186888263
+108: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss nan
+109: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 128.15222746977807
+110: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0004, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 5.20003893717841
+111: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 89.42116824937793
+112: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss nan
+113: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+114: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0007, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+115: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 182.61751610017376
+116: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 2} : Loss 5.878260198761546
+117: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 11.617157039048891
+118: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.539062921847445
+119: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 12.433998627008393
+120: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 3.814880186991611
+121: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.934004433887971
+122: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0004, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+123: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.878650411485561
+124: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 120.52433277638423
+125: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0004, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+126: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.7860208489778984
+127: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.820082103150986
+128: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 4.904980671778642
+129: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 318.9738166516027
+130: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 1131.2133259672396
+131: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+132: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0009, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 501.9866056705958
+133: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 866.1083131090345
+134: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0003, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 45.7532936448247
+135: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0004, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 5.872036086871015
+136: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.002912478513105
+137: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 625.9536934538437
+138: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 126.32769426961707
+139: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 16.415775240585553
+140: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0003, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.264371549410613
+141: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0009, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+142: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+143: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 2.551604757318068
+144: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+145: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 162.65196580574462
+146: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 13.266861591937417
+147: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0007, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 181.10888667495323
+148: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 58.278260287875035
+149: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.685630578159032
+150: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 2.68565652386588
+151: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.1047934707603426
+152: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+153: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 5.3480528170806725
+154: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.429266706475483
+155: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 66.70604169843497
+156: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 3.5736829503602032
+157: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 12.1177560390619
+158: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 498.5109337251291
+159: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0004, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 2} : Loss 3.6563588948096934
+160: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+161: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0004, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 133.22092478394376
+162: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 161.02373041654855
+163: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+164: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 11.32384294270525
+165: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0007, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 95.03225340446724
+166: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+167: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.907478741565921
+168: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.907478741565921
+169: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 181.7488843134185
+170: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.7162450533240503
+171: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss nan
+172: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.518906119445626
+173: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 641.8462177445597
+174: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.981542971926724
+175: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 13.081935345886365
+176: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0009, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+177: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+178: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0004, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 11.937979330155464
+179: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 18.192849340089527
+180: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.001, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+181: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.790079879226857
+182: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 78.62875360561362
+183: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 77.1946859694518
+184: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 2318432352.1577387
+185: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 12.379846989956606
+186: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 65.29505090020709
+187: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss nan
+188: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 46.652662509928106
+189: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0007, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 172.97478674351845
+190: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 8.233509693501889
+191: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 7039.0024935116435
+192: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 13.100124083643374
+193: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 452.7328625259146
+194: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 690.3706967554137
+195: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0004, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 145.18664654584305
+196: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.944314043140062
+197: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 12.292919287663725
+198: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 47.56962286017759
+199: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.7124357303147275
+200: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.7718851904950634
+201: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0007, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.6801119995525693
+202: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.6761116229546813
+203: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 7.600160344114542
+204: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 2} : Loss 2.948817339074865
+205: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 11.849164418210426
+206: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.5800580268546667
+207: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0003, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+208: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.9958757735778354
+209: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 11.721998447073354
+210: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0007, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 31.98915460164257
+211: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0004, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 153.31755776587858
+212: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+213: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 2} : Loss 13.190601689650425
+214: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 134.1792719857418
+215: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 183.6370764617741
+216: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 4.645235978662519
+217: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0007, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+218: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 186.60500226820776
+219: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+220: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 69.31055767915987
+221: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 10.36371840361156
+222: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.6963778184819676
+223: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+224: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 2.6698722017138876
+225: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 2} : Loss 2.602655968538206
+226: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0004, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 134.82295021037675
+227: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 11.598238011155782
+228: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+229: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.745141868808565
+230: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss nan
+231: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 12.26591525180184
+232: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+233: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+234: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss 525.4985587570388
+235: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 349.4978308934411
+236: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0009, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss nan
+237: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 256.71431810401674
+238: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.5345167799772432
+239: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 47.373959846643686
+240: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.755077445702089
+241: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 12.224696766298292
+242: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+243: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 12.49870095804695
+244: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 10} : Loss nan
+245: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.31661511410838
+246: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 2} : Loss 2.6733430291847613
+247: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 625.9536934538437
+248: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 162.09297187104076
+249: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 177.0733942318205
+250: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0007, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.499535767955812
+251: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 10} : Loss nan
+252: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.9867670308657397
+253: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0007, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+254: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss nan
+255: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0004, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 10} : Loss 446.3653639397447
+256: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0009, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+257: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 173.9285998784117
+258: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 11.84824321932526
+259: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+260: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+261: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 1241.375699339809
+262: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.878650411485561
+263: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.202643206279557
+264: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+265: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+266: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.001, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+267: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 2.5738716002487325
+268: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 116.53321254500293
+269: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.1047934707603426
+270: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+271: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0007, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 30.803520015167415
+272: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 11.760413190955529
+273: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 129.68473253335242
+274: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 12.433998627008393
+275: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+276: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+277: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.704895894650065
+278: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.705890911899474
+279: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.8860644257967683
+280: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 64.12379608377607
+281: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss nan
+282: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 2} : Loss 67.99460836214561
+283: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 35.216425107636255
+284: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 89.00459105227881
+285: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss 165.84995067622498
+286: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 78.55293711323786
+287: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 736.813929024592
+288: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss nan
+289: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 211.62975217880904
+290: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.9692924555972673
+291: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 7.600160344114542
+292: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+293: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+294: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss nan
+295: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+296: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 139.87792037516886
+297: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss 174.3624130200852
+298: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 106.02368280714643
+299: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0007, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 95.03225340446724
+300: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 648873.8179538436
+301: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+302: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 12.704895894650065
+303: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+304: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 107.9921920283407
+305: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 439.63239630214076
+306: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 4.783689334585982
+307: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 128.39833704334453
+308: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 5.927014817572967
+309: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.959772202637968
+310: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0009, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+311: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0004, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 4.887125461911818
+312: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.8655670586760715
+313: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 13.316132886304004
+314: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 134.1356957260075
+315: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 176.73881551584844
+316: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.731484687975145
+317: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.6645095046152947
+318: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0004, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 6.239830709268008
+319: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0007, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+320: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 12.8921733292841
+321: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0007, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.601402704305604
+322: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 7.895929331236838
+323: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0009, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 397.12923827832776
+324: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.642418796264256
+325: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0007, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 11.661869683412911
+326: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 67.8663409210825
+327: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 52.60830125640007
+328: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 3.4509279118864304
+329: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 2} : Loss 2.8621373750911365
+330: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss nan
+331: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 13.167061646523312
+332: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 8.334175528559859
+333: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.9176210520733408
+334: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 2} : Loss 2.775045998557635
+335: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0007, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss nan
+336: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0007, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 2} : Loss 108.67886464487724
+337: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.938651878420232
+338: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+339: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+340: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 429.5056389989283
+341: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.694438443160326
+342: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss nan
+343: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss 184.61198459645777
+344: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 134.19224561827141
+345: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 275.2214355002685
+346: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0007, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+347: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 12.708156036575735
+348: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 12.048789115908445
+349: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 328.701610789189
+350: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 139.87792037516886
+351: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 181.8758431993052
+352: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+353: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+354: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 2.7053921527336353
+355: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.2685629252522745
+356: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 10} : Loss nan
+357: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.948817339074865
+358: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 2} : Loss 2.7471473036515284
+359: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.67365674943493
+360: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 12.098946616333674
+361: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss nan
+362: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.6500152021440018
+363: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 133.91727893497688
+364: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0009, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+365: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.816142829214805
+366: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0003, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 3.2742126422728397
+367: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 13.347886554234218
+368: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+369: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.981542971926724
+370: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0007, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.199179027352866
+371: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 3.6149861022389445
+372: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.51820990765603
+373: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.8702996116735924
+374: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+375: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 7.971223966055644
+376: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 10} : Loss nan
+377: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0009, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+378: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 3.3284860132260854
+379: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 475.3229456349035
+380: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 94.93490652281525
+381: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 78.16343760760404
+382: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 87.62306046327407
+383: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.38567007342384
+384: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 33.49249715707241
+385: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 2} : Loss nan
+386: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 5.337314674127132
+387: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+388: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0007, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss nan
+389: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 5.881639677680053
+390: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 13.245177778001954
+391: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+392: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 771.956766818496
+393: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 5.807780914099196
+394: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 2} : Loss 3.0342766977345867
+395: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 2.7094519343371877
+396: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.001, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+397: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 3.8731986285587325
+398: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+399: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 641.8462177445597
+400: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 252.46813223304554
+401: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 6.078247578129634
+402: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 2.602655968538206
+403: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0009, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss nan
+404: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+405: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 12.409902595443022
+406: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+407: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+408: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 117.05587002160462
+409: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+410: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 10} : Loss nan
+411: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.1724086917137675
+412: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 157.09862061829492
+413: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss nan
+414: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss nan
+415: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 3.651985971634698
+416: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 13.4412239067946
+417: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 374.7460947675773
+418: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 84.94887583469104
+419: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 94.93490652281525
+420: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0007, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+421: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 13.688932463120583
+422: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 19.263457661550767
+423: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.821879909019114
+424: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 3.276111517626687
+425: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+426: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0003, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 1200.4557846787618
+427: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0003, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 76.85713812498173
+428: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+429: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 2} : Loss 3.356161397241073
+430: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 184.3172279406358
+431: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 4.209874511128086
+432: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 222.50976299639805
+433: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 5.351788674282087
+434: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 49.18344978708767
+435: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 11.751774130528807
+436: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0007, 'momentum': 0.016, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+437: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+438: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+439: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0003, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss 721.4371849398829
+440: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 5.9113516282069085
+441: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+442: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 12.002912478513105
+443: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 4.76885990493218
+444: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0009, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+445: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 17.48514968697208
+446: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 546.476163539201
+447: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 2} : Loss 2.729634236447141
+448: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 2} : Loss 12.763882313840707
+449: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 9.354988335159428
+450: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.001, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 2} : Loss 522.6633842526757
+451: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+452: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 3.02419017104124
+453: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0007, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss nan
+454: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0007, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss nan
+455: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0003, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 45.104524656325815
+456: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0007, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 227.44319054210473
+457: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 177.44026186904685
+458: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 106.02368280714643
+459: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss 942.2378227062889
+460: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0007, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 136.814914814504
+461: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 849.6055038382319
+462: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0004, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss 343.814682550179
+463: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0007, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+464: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0004, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 4.172737177635505
+465: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+466: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.001, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 8.287970998439302
+467: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 26.791247032735605
+468: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss 1651.9913429821318
+469: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.49, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 208.59239535998958
+470: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 7065568992539.683
+471: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.0007, 'momentum': 0.289, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss 500.0557435307784
+472: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0003, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 90.12717594638494
+473: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.016, 'l2': True, 'regularization_coefficient': 0.0, 'batch_size': 5} : Loss 97.84084437070048
+474: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0009, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.931832101829948
+475: {'hidden_layer_sizes': array([135, 140, 145]), 'learning_rate': 0.0009, 'momentum': 0.7, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 536.7404437567726
+476: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+477: {'hidden_layer_sizes': array([105, 110, 130]), 'learning_rate': 0.0007, 'momentum': 0.057, 'l2': False, 'regularization_coefficient': 0.0, 'batch_size': 10} : Loss nan
+478: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.0004, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.047555294042482
+479: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 68.43077270810778
+480: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 5.351788674282087
+481: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.5832823978771207
+482: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.6177229419433274
+483: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0007, 'momentum': 0.407, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 10} : Loss nan
+484: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0009, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 349.2719770659346
+485: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.289, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 9.354988335159428
+486: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.041, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+487: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.446, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.5800580268546667
+488: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0009, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+489: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.001, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0009, 'batch_size': 5} : Loss 12.247283117750857
+490: {'hidden_layer_sizes': array([100, 115, 125]), 'learning_rate': 0.0004, 'momentum': 0.69, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+491: {'hidden_layer_sizes': array([ 80,  95, 100]), 'learning_rate': 0.0004, 'momentum': 0.446, 'l2': True, 'regularization_coefficient': 0.0001, 'batch_size': 5} : Loss 199.1223976768907
+492: {'hidden_layer_sizes': array([70, 80]), 'learning_rate': 0.0003, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 10} : Loss nan
+493: {'hidden_layer_sizes': array([130]), 'learning_rate': 0.001, 'momentum': 0.7, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 2} : Loss 2.9958757735778354
+494: {'hidden_layer_sizes': array([ 85,  95, 120]), 'learning_rate': 0.0003, 'momentum': 0.49, 'l2': False, 'regularization_coefficient': 0.0006, 'batch_size': 5} : Loss 51.82786825755882
+495: {'hidden_layer_sizes': array([130, 135, 150]), 'learning_rate': 0.0009, 'momentum': 0.69, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 349.2719770659346
+496: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0004, 'momentum': 0.041, 'l2': False, 'regularization_coefficient': 0.001, 'batch_size': 2} : Loss 2.6003800721224097
+497: {'hidden_layer_sizes': array([140]), 'learning_rate': 0.0009, 'momentum': 0.407, 'l2': True, 'regularization_coefficient': 0.001, 'batch_size': 5} : Loss 12.360528880195053
+498: {'hidden_layer_sizes': array([ 95, 105, 125]), 'learning_rate': 0.001, 'momentum': 0.652, 'l2': True, 'regularization_coefficient': 0.0006, 'batch_size': 65} : Loss 1053.457646145277
