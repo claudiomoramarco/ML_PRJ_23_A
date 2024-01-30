@@ -72,8 +72,8 @@ else:
             # layer_sizes => dimensioni degli hidden layers, seguite dalle dimensioni dell'output layer
             layer_sizes = [5 , 1]
             # learning rate 
-            learning_rate = 0.03
-            momentum = 0.3
+            learning_rate = 0.08
+            momentum = 0.08
             l2 = False # regolarizzazione L2 per il monks-3
             regularization_coefficient = 0.02
             batch_size = 1 

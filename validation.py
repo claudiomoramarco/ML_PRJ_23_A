@@ -65,7 +65,7 @@ def kFoldCrossValidation(k, isRegression, data_filename, parameters_filename):  
                 targetsTR = np.ravel(targetsTR)
             
             # addestramento
-            network_instance.run_training(dataTR, targetsTR, 20 , -1, configs[i]['batch_size'])
+            network_instance.run_training(dataTR, targetsTR, 20 , -1, configs[i]['batch_size'], [], [])
             # test su input_folds[j]
             ret = network_instance.run_test(input_folds[j])
             loss_avg_config += loss.mean_squared_error(target_folds[j], ret)
